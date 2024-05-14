@@ -1,0 +1,20 @@
+Package: hidradenitis
+Title: Calculate Clinical Scores for Hidradenitis Suppurativa (HS), a Dermatologic Disease
+Version: 0.0.0.9000
+Authors@R: 
+    person("Bill", "Denney", email="wdenney@humanpredictions.com", role=c("aut", "cre"), comment=c(ORCID="0000-0002-5759-428X"))
+Description: Calculate clinical scores for hidradenitis suppurativa (HS), a
+  dermatologic disease.  The scores are typically used for evaluation of
+  efficacy in clinical trials.  The scores are not commonly used in clinical
+  practice.  The specific scores implemented are HiSQOL, HiSQOL-Adolescent, HS
+  PtGA, HASI-R, and HASI.
+License: GPL (>= 3)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
+Suggests: 
+    spelling,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+URL: https://billdenney.github.io/hidradenitis/
+Language: en-US
