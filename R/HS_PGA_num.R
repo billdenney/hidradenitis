@@ -13,9 +13,7 @@
 #'
 #' hs_pga_num(abscess_fistula, inflammatory_nodule, non_inflammatory_nodule)
 #'
-#' @import
-#'
-#'
+
 hs_pga_num <- function(abscess_fistula, inflammatory_nodule, non_inflammatory_nodule) {
   
   # Assertions using checkmate package
@@ -37,5 +35,5 @@ hs_pga_num <- function(abscess_fistula, inflammatory_nodule, non_inflammatory_no
   hs_pga_scores[abscess_fistula >= 2 & abscess_fistula <= 5 & inflammatory_nodule >= 10] <- 5
   hs_pga_scores[abscess_fistula > 5] <- 6
   
-  return(hs_pga_scores)
+  hs_pga_scores
 }

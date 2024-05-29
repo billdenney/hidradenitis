@@ -8,8 +8,6 @@
 #'
 #' hs_pga_char(hs_pga_scores)
 #'
-#' @import
-#'
 hs_pga_char <- function(hs_pga_scores) {
   
   # Assertions using checkmate package
@@ -21,5 +19,5 @@ hs_pga_char <- function(hs_pga_scores) {
   # Convert HS-PGA scores to character values
   hs_pga_char <- hs_pga_categories[hs_pga_scores]
   
-  return(hs_pga_char)
+  hs_pga_char
 }

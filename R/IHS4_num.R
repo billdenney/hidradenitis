@@ -13,9 +13,7 @@
 #' 
 #' IHS4_num(nodules, abscesses, draining_tunnels)
 #'
-#' @import
-#'
-#'
+
 IHS4_num <- function(nodules, abscesses, draining_tunnels) {
   
   # Assertions using checkmate package
@@ -26,5 +24,5 @@ IHS4_num <- function(nodules, abscesses, draining_tunnels) {
   # Calculate IHS4 scores based on the criteria
   ihs4_score <- (nodules * 1) + (abscesses * 2) + (draining_tunnels * 4)
   
-  return(ihs4_score)
+  ihs4_score
 }

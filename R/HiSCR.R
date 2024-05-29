@@ -23,8 +23,6 @@
 #'                                   timepoint_abscess, timepoint_nodule, timepoint_fistula,
 #'                                   percentage)
 #' 
-#' @import
-#' 
 
 calculate_hiscr <- function(baseline_abscess, baseline_nodule, baseline_fistula,
                             timepoint_abscess, timepoint_nodule, timepoint_fistula,
@@ -57,5 +55,5 @@ calculate_hiscr <- function(baseline_abscess, baseline_nodule, baseline_fistula,
   # Determine if HiSCR response is achieved based on all criteria
   hiscr_response <- reduction_criteria & abscess_criteria & fistula_criteria
   
-  return(hiscr_response)
+  hiscr_response
 }

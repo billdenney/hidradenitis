@@ -8,8 +8,7 @@
 #'
 #' IHS4_char(IHS4_scores)
 #'
-#' @import
-#'
+
 IHS4_char <- function(IHS4_scores) {
   
   # Assertions using checkmate package
@@ -24,5 +23,5 @@ IHS4_char <- function(IHS4_scores) {
   # Convert IHS4 scores to character values
   IHS4_char_ret <- as.character(IHS4_categories)
   
-  return(IHS4_char_ret)
+  IHS4_char_ret
 }

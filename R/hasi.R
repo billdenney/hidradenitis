@@ -1,42 +1,54 @@
-#' Calculates the HASI-R score for Hidradenitis Suppurativa severity.
+#' Calculates the HASI-R score for each patient and visit.
 #'
-#' @param nodules List of integer vectors representing the count of inflammatory nodules in each body region.
-#' @param abscesses List of integer vectors representing the count of abscesses in each body region.
-#' @param fistulas List of integer vectors representing the count of draining fistulas in each body region.
-#' @param region ?
-#' @return A numeric value representing the HASI-R score.
+#' @param patientID Character vector representing patient IDs.
+#' @param visitDY Integer vector representing visit days.
+#' @param BodySite Character vector representing body sites.
+#' @param InflammColorChg Integer vector representing inflammatory color change scores (0-3).
+#' @param Induration Integer vector representing induration scores (0-3).
+#' @param OpenSkinSurface Integer vector representing open skin surface scores (0-3).
+#' @param Tunnels Integer vector representing tunnels scores (0-3).
+#' @return A data frame with patientID, visitDY, and the calculated HASI-R score.
 #' @export
 #' @examples
 #' 
-#' nodules <- list(axillae = 3, groin = 2, buttocks = 0)
-#' abscesses <- list(axillae = 1, groin = 1, buttocks = 0)
-#' fistulas <- list(axillae = 1, groin = 0, buttocks = 1)
-#' hasi_r_score <- hs_hasi_r(nodules, abscesses, fistulas)
+#' patientID <- c("000-001", "000-001", "000-001", "000-001", "000-002", "000-002", "000-002", "000-002")
+#' visitDY <- c(1, 1, 2, 2, 1, 1, 2, 2)
+#' BodySite <- c("Axillae", "Groin", "Axillae", "Groin", "Axillae", "Groin", "Axillae", "Groin")
+#' InflammColorChg <- c(1, 2, 1, 2, 2, 1, 2, 1)
+#' Induration <- c(2, 2, 1, 1, 1, 1, 1, 1)
+#' OpenSkinSurface <- c(1, 1, 2, 3, 2, 3, 2, 3)
+#' Tunnels <- c(0, 1, 2, 0, 2, 0, 2, 0)
 #' 
-#' @import
+#' hasi_r_scores <- calculate_hasi_r(patientID, visitDY, BodySite, InflammColorChg, Induration, OpenSkinSurface, Tunnels)
+#' hasi_r_scores
 #' 
 
-hs_hasi_r <- function(nodules, abscesses, fistulas) {
+# Rethinking ideas due to https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8573730/
+
+calculate_hasi_r <- function(patientID, visitDY, BodySite, InflammColorChg, Induration, OpenSkinSurface, Tunnels) {
+  checkmate::assert_character(patientID, any.missing = FALSE, null.ok = FALSE)
+  checkmate::assert_character(visitDY, any.missing = FALSE, null.ok = FALSE)
+  checkmate::assert_character(BodySite, any.missing = FALSE, null.ok = FALSE)
   
-  # Ensure input lists have the same length and names
-  checkmate::assert_list(nodules, types = "integerish", any.missing = FALSE, null.ok = FALSE)
-  checkmate::assert_list(abscesses, types = "integerish", len = length(nodules), names = names(nodules), any.missing = FALSE, null.ok = FALSE)
-  checkmate::assert_list(fistulas, types = "integerish", len = length(nodules), names = names(nodules), any.missing = FALSE, null.ok = FALSE)
+  # The trick to these is that the current data will need a separation of numeric and character indicators.
+  checkmate::assert_integerish(InflammColorChg, lower = 0, upper = 3, any.missing = FALSE, null.ok = FALSE)
+  checkmate::assert_integerish(Induration, lower = 0, upper = 3, any.missing = FALSE, null.ok = FALSE)
+  checkmate::assert_integerish(OpenSkinSurface, lower = 0, upper = 3, any.missing = FALSE, null.ok = FALSE)
+  checkmate::assert_integerish(Tunnels, lower = 0, upper = 3, any.missing = FALSE, null.ok = FALSE)
   
-  # Weights for different lesion types
-  weights <- list(nodule = 1, abscess = 2, fistula = 4)
+  # Combine input vectors into a data frame
+  data <- data.frame(patientID, visitDY, BodySite, InflammColorChg, Induration, OpenSkinSurface, Tunnels)
   
-  # Initialize HASI-R score and regions
-  regions <- names(nodules)
-  hasi_r_score <- 0
+  # Calculate the sum of scores for each component for each body site
+  data$site_score <- rowSums(data[, c("InflammColorChg", "Induration", "OpenSkinSurface", "Tunnels")])
   
-  # Iterate over each body region to calculate the weighted score
-  for (region in regions) {
-    hasi_r_score <- hasi_r_score +
-      nodules[[region]] * weights$nodule +
-      abscesses[[region]] * weights$abscess +
-      fistulas[[region]] * weights$fistula
-  }
+  # Calculate the total HASI-R score for each patient and visit
+  hasi_r_scores <- aggregate(site_score ~ patientID + visitDY, data, sum)
   
-  return(hasi_r_score)
+  # Rename
+  colnames(hasi_r_scores)[colnames(hasi_r_scores) == "site_score"] <- "HASI_R_Score"
+  
+  hasi_r_scores
 }
+
+# Note: HASI-R is unique for each Patient across each Visit.
