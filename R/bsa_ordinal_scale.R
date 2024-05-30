@@ -1,5 +1,7 @@
 #' Converts BSA percentage to the ordinal scale for HASI-R scoring.
 #'
+#' DEscription -
+#'
 #' @param bsa_percent Numeric vector representing BSA percentages.
 #' @return An integer vector representing the ordinal scale values.
 #' @export
@@ -14,7 +16,7 @@
 #' 
 
 convert_bsa_to_ordinal <- function(bsa_percent) {
-  checkmate::assert_numeric(bsa_percent, lower = 0, upper = 100, any.missing = TRUE, null.ok = TRUE)
+  checkmate::assert_numeric(bsa_percent, lower = 0, upper = 100, any.missing = FALSE, null.ok = FALSE)
   
   bsa_ordinal <- cut(bsa_percent, 
                      breaks = c(-Inf, 0, 3, 9, 20, 29, 50, Inf), 
