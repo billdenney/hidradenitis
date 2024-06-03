@@ -11,7 +11,7 @@
 IHS4_char <- function(IHS4_scores) {
 
   # Assertions using checkmate package
-  checkmate::assert_integerish(IHS4_scores, lower = 0, any.missing = FALSE, null.ok = FALSE)
+  checkmate::assert_integerish(IHS4_scores, lower = 0, null.ok = FALSE)
 
   # Define the IHS4 categories
   IHS4_categories <- cut(IHS4_scores,
