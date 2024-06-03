@@ -17,9 +17,9 @@
 hs_pga_num <- function(abscess_fistula, inflammatory_nodule, non_inflammatory_nodule) {
 
   # Assertions using checkmate package
-  checkmate::assert_integerish(abscess_fistula, lower = 0, any.missing = FALSE, null.ok = FALSE)
-  checkmate::assert_integerish(inflammatory_nodule, lower = 0, len = length(abscess_fistula), any.missing = FALSE, null.ok = FALSE)
-  checkmate::assert_integerish(non_inflammatory_nodule, lower = 0, len = length(abscess_fistula), any.missing = FALSE, null.ok = FALSE)
+  checkmate::assert_integerish(abscess_fistula, lower = 0, null.ok = FALSE)
+  checkmate::assert_integerish(inflammatory_nodule, lower = 0, len = length(abscess_fistula), null.ok = FALSE)
+  checkmate::assert_integerish(non_inflammatory_nodule, lower = 0, len = length(abscess_fistula), null.ok = FALSE)
 
   # Initialize the HS-PGA scores vector for use in conditionals
   hs_pga_scores <- rep(NA_integer_, length(abscess_fistula))

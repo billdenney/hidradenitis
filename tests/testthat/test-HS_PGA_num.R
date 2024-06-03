@@ -35,9 +35,18 @@ test_that("check_input_length_consistency", {
 })
 
 test_that("check_missing_values", {
-  expect_error(hs_pga_num(c(0, NA, 0), c(0, 0, 0), c(0, 0, 0)))
-  expect_error(hs_pga_num(c(0, 0, 0), c(0, NA, 0), c(0, 0, 0)))
-  expect_error(hs_pga_num(c(0, 0, 0), c(0, 0, 0), c(0, NA, 0)))
+  expect_equal(
+    hs_pga_num(c(0, NA, 0), c(0, 0, 0), c(0, 0, 0)),
+    c(1, NA, 1)
+  )
+  expect_equal(
+    hs_pga_num(c(0, 0, 0), c(0, NA, 0), c(0, 0, 0)),
+    c(1, NA, 1)
+  )
+  expect_equal(
+    hs_pga_num(c(0, 0, 0), c(0, 0, 0), c(0, NA, 0)),
+    c(1, NA, 1)
+  )
 })
 
 test_that("check_negative_values", {
