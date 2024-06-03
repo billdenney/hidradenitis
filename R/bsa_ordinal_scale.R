@@ -11,7 +11,7 @@
 #'
 
 convert_bsa_to_ordinal <- function(bsa_percent) {
-  checkmate::assert_numeric(bsa_percent, lower = 0, upper = 100, any.missing = FALSE, null.ok = FALSE)
+  checkmate::assert_numeric(bsa_percent, lower = 0, upper = 100, null.ok = FALSE)
 
   bsa_ordinal <- cut(bsa_percent,
                      breaks = c(-Inf, 0, 3, 9, 20, 29, 50, Inf),
