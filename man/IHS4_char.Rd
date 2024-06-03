@@ -7,7 +7,7 @@
 IHS4_char(IHS4_scores)
 }
 \arguments{
-\item{hs_pga_scores}{An integer vector representing the IHS4 scores (0-3: Mild, 4-10: Moderate, 11- : Severe).}
+\item{IHS4_scores}{An integer vector representing the IHS4 scores (0-3: Mild, 4-10: Moderate, >=11: Severe).}
 }
 \value{
 A character vector representing the corresponding IHS4 categories.
@@ -19,5 +19,4 @@ Converts IHS4 numerical scores to character values.
 IHS4_scores <- c(2, 5, 12)
 
 IHS4_char(IHS4_scores)
-
 }
