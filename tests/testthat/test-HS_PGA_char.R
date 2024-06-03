@@ -1,5 +1,8 @@
-test_that("expect_error_missing_values", {
-  expect_error(hs_pga_char(c(1, 2, NA, 4, 5, 6)))
+test_that("missing_values", {
+  expect_equal(
+    hs_pga_char(c(1, 2, NA, 4, 5, 6)),
+    c("Clean", "Minimal", NA, "Moderate", "Severe", "Very Severe")
+  )
 })
 
 test_that("expect_error_out_of_range_values", {
