@@ -17,7 +17,7 @@ hs_pga_char <- function(hs_pga_scores) {
   hs_pga_categories <- c("Clean", "Minimal", "Mild", "Moderate", "Severe", "Very Severe")
 
   # Convert HS-PGA scores to character values, keep the original names
-  hs_pga_char <- setNames(hs_pga_categories[hs_pga_scores], names(hs_pga_scores))
+  hs_pga_char <- stats::setNames(hs_pga_categories[hs_pga_scores], names(hs_pga_scores))
 
   hs_pga_char
 }

@@ -13,15 +13,12 @@ convert_bsa_to_ordinal(bsa_percent)
 An integer vector representing the ordinal scale values.
 }
 \description{
-DEscription -
+Converts BSA percentage to the ordinal scale for HASI-R scoring.
 }
 \examples{
 
 bsa_percent <- c(0, 2, 5, 12, 25, 40, 75)
 bsa_ordinal <- convert_bsa_to_ordinal(bsa_percent)
 bsa_ordinal
-
-test <- data.frame(BSA = c(0,2,5,12,25,40,75))
-test |> mutate(BSA_ordinal = convert_bsa_to_ordinal(BSA))
 
 }

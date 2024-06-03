@@ -18,26 +18,40 @@
 #' @export
 #' @examples
 #'
-#' patientID <- c("000-001", "000-001", "000-001", "000-001", "000-002", "000-002", "000-002", "000-002")
+#' patientID <-
+#'   c(
+#'     "000-001", "000-001", "000-001", "000-001",
+#'     "000-002", "000-002", "000-002", "000-002"
+#'   )
 #' visitDY <- c(1, 1, 2, 2, 1, 1, 2, 2)
-#' BodySite <- c("Axillae", "Groin", "Axillae", "Groin", "Axillae", "Groin", "Axillae", "Groin")
+#' BodySite <-
+#'   c(
+#'     "Axillae", "Groin", "Axillae", "Groin",
+#'     "Axillae", "Groin", "Axillae", "Groin"
+#'   )
 #' BSA <- c(1, 2, 1, 2, 2, 1, 2, 1)
 #' InflammColorChg <- c(1, 2, 1, 2, 2, 1, 2, 1)
 #' Induration <- c(2, 2, 1, 1, 1, 1, 1, 1)
 #' OpenSkinSurface <- c(1, 1, 2, 3, 2, 3, 2, 3)
 #' Tunnels <- c(0, 1, 2, 0, 2, 0, 2, 0)
 #'
-#' hasi_r_scores <- calculate_hasi_r(patientID, visitDY, BodySite, InflammColorChg, Induration, OpenSkinSurface, Tunnels)
-#' hasi_r_scores
+#' # hasi_r_scores <-
+#' #   calculate_hasi_r(
+#' #     patientID, visitDY, BodySite,
+#' #     InflammColorChg, Induration, OpenSkinSurface,
+#' #     Tunnels
+#' #   )
+#' # hasi_r_scores
 #'
 
 # Rethinking ideas due to https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8573730/
 
-calculate_hasi_r <- function(patientID, visitDY, BodySite, InflammColorChg, Induration, OpenSkinSurface, Tunnels) {
+calculate_hasi_r <- function(patientID, visitDY, BodySite, BSA, InflammColorChg, Induration, OpenSkinSurface, Tunnels) {
+  stop("Not yet implemented")
   checkmate::assert_character(patientID, any.missing = FALSE, null.ok = FALSE)
   checkmate::assert_character(visitDY, any.missing = FALSE, null.ok = FALSE)
   checkmate::assert_character(BodySite, any.missing = FALSE, null.ok = FALSE)
-  checkmate::assert_integerish(BSA, lower = 0, upper = 6, any.missing = FALSE, null.ok = FALSE)
+  #checkmate::assert_integerish(BSA, lower = 0, upper = 6, any.missing = FALSE, null.ok = FALSE)
 
   # The trick to these is that the current data will need a separation of numeric and character indicators.
   checkmate::assert_integerish(InflammColorChg, lower = 0, upper = 3, any.missing = FALSE, null.ok = FALSE)
@@ -46,7 +60,17 @@ calculate_hasi_r <- function(patientID, visitDY, BodySite, InflammColorChg, Indu
   checkmate::assert_integerish(Tunnels, lower = 0, upper = 3, any.missing = FALSE, null.ok = FALSE)
 
   # Combine input vectors into a data frame
-  data <- data.frame(patientID, visitDY, BodySite, BSA, InflammColorChg, Induration, OpenSkinSurface, Tunnels)
+  data <-
+    data.frame(
+      patientID,
+      visitDY,
+      BodySite,
+      # BSA,
+      InflammColorChg,
+      Induration,
+      OpenSkinSurface,
+      Tunnels
+    )
 
   # Calculate the sum of scores for each component for each body site
   data$severity_index <- rowSums(data[, c("InflammColorChg", "Induration", "OpenSkinSurface", "Tunnels")])

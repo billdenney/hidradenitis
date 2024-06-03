@@ -8,6 +8,7 @@ calculate_hasi_r(
   patientID,
   visitDY,
   BodySite,
+  BSA,
   InflammColorChg,
   Induration,
   OpenSkinSurface,
@@ -21,6 +22,8 @@ calculate_hasi_r(
 
 \item{BodySite}{Character vector representing body sites.}
 
+\item{BSA}{Integer vector representing body surface area scores (0-6).}
+
 \item{InflammColorChg}{Integer vector representing inflammatory color change scores (0-3).}
 
 \item{Induration}{Integer vector representing induration scores (0-3).}
@@ -28,8 +31,6 @@ calculate_hasi_r(
 \item{OpenSkinSurface}{Integer vector representing open skin surface scores (0-3).}
 
 \item{Tunnels}{Integer vector representing tunnels scores (0-3).}
-
-\item{BSA}{Integer vector representing body surface area scores (0-6).}
 }
 \value{
 A data frame with patientID, visitDY, and the calculated HASI-R score.
@@ -39,17 +40,30 @@ Calculates the HASI-R score for each patient and visit.
 }
 \examples{
 
-patientID <- c("000-001", "000-001", "000-001", "000-001", "000-002", "000-002", "000-002", "000-002")
+patientID <-
+  c(
+    "000-001", "000-001", "000-001", "000-001",
+    "000-002", "000-002", "000-002", "000-002"
+  )
 visitDY <- c(1, 1, 2, 2, 1, 1, 2, 2)
-BodySite <- c("Axillae", "Groin", "Axillae", "Groin", "Axillae", "Groin", "Axillae", "Groin")
+BodySite <-
+  c(
+    "Axillae", "Groin", "Axillae", "Groin",
+    "Axillae", "Groin", "Axillae", "Groin"
+  )
 BSA <- c(1, 2, 1, 2, 2, 1, 2, 1)
 InflammColorChg <- c(1, 2, 1, 2, 2, 1, 2, 1)
 Induration <- c(2, 2, 1, 1, 1, 1, 1, 1)
 OpenSkinSurface <- c(1, 1, 2, 3, 2, 3, 2, 3)
 Tunnels <- c(0, 1, 2, 0, 2, 0, 2, 0)
 
-hasi_r_scores <- calculate_hasi_r(patientID, visitDY, BodySite, InflammColorChg, Induration, OpenSkinSurface, Tunnels)
-hasi_r_scores
+# hasi_r_scores <-
+#   calculate_hasi_r(
+#     patientID, visitDY, BodySite,
+#     InflammColorChg, Induration, OpenSkinSurface,
+#     Tunnels
+#   )
+# hasi_r_scores
 
 }
 \references{
