@@ -59,3 +59,54 @@ test_that("check_fistula_increase", {
 test_that("check_complete_clearance", {
   expect_true(calculate_hiscr(3, 5, 2, 0, 0, 0, 50))
 })
+
+test_that("calculate_hiscr NA values", {
+  expect_equal(
+    calculate_hiscr(
+      baseline_abscess = NA_real_, baseline_nodule = 5, baseline_fistula = 2,
+      timepoint_abscess = 0, timepoint_nodule = 0, timepoint_fistula = 0,
+      percentage = 50
+    ),
+    NA
+  )
+  expect_equal(
+    calculate_hiscr(
+      baseline_abscess = 3, baseline_nodule = NA_real_, baseline_fistula = 2,
+      timepoint_abscess = 0, timepoint_nodule = 0, timepoint_fistula = 0,
+      percentage = 50
+    ),
+    NA
+  )
+  expect_equal(
+    calculate_hiscr(
+      baseline_abscess = 3, baseline_nodule = 5, baseline_fistula = NA_real_,
+      timepoint_abscess = 0, timepoint_nodule = 0, timepoint_fistula = 0,
+      percentage = 50
+    ),
+    NA
+  )
+  expect_equal(
+    calculate_hiscr(
+      baseline_abscess = 3, baseline_nodule = 5, baseline_fistula = 2,
+      timepoint_abscess = NA_real_, timepoint_nodule = 0, timepoint_fistula = 0,
+      percentage = 50
+    ),
+    NA
+  )
+  expect_equal(
+    calculate_hiscr(
+      baseline_abscess = 3, baseline_nodule = 5, baseline_fistula = 2,
+      timepoint_abscess = 0, timepoint_nodule = NA_real_, timepoint_fistula = 0,
+      percentage = 50
+    ),
+    NA
+  )
+  expect_equal(
+    calculate_hiscr(
+      baseline_abscess = 3, baseline_nodule = 5, baseline_fistula = 2,
+      timepoint_abscess = 0, timepoint_nodule = 0, timepoint_fistula = NA_real_,
+      percentage = 50
+    ),
+    NA
+  )
+})

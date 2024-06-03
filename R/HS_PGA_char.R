@@ -11,7 +11,7 @@
 hs_pga_char <- function(hs_pga_scores) {
 
   # Assertions using checkmate package
-  checkmate::assert_integerish(hs_pga_scores, lower = 1, upper = 6, any.missing = FALSE, null.ok = FALSE)
+  checkmate::assert_integerish(hs_pga_scores, lower = 1, upper = 6, null.ok = FALSE)
 
   # Define the HS-PGA categories
   hs_pga_categories <- c("Clean", "Minimal", "Mild", "Moderate", "Severe", "Very Severe")
