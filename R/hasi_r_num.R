@@ -27,13 +27,13 @@
 #' OpenSkinSurface <- c(1, 1, 2, 3, 2, 3, 2, 3)
 #' Tunnels <- c(0, 1, 2, 0, 2, 0, 2, 0)
 #' 
-#' hasi_r_scores <- calculate_hasi_r(patientID, visitDY, BodySite, InflammColorChg, Induration, OpenSkinSurface, Tunnels)
+#' hasi_r_scores <- hasi_r_num(patientID, visitDY, BodySite, InflammColorChg, Induration, OpenSkinSurface, Tunnels)
 #' hasi_r_scores
 #' 
 
 # Rethinking ideas due to https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8573730/
 
-calculate_hasi_r <- function(patientID, visitDY, BodySite, InflammColorChg, Induration, OpenSkinSurface, Tunnels) {
+hasi_r_num <- function(patientID, visitDY, BodySite, InflammColorChg, Induration, OpenSkinSurface, Tunnels) {
   checkmate::assert_character(patientID, any.missing = FALSE, null.ok = FALSE)
   checkmate::assert_character(visitDY, any.missing = FALSE, null.ok = FALSE)
   checkmate::assert_character(BodySite, any.missing = FALSE, null.ok = FALSE)
@@ -69,7 +69,7 @@ calculate_hasi_r <- function(patientID, visitDY, BodySite, InflammColorChg, Indu
 #   summarize(
 #     HASI_R =
 #       list(
-#         calculate_hasi_r(BodySite = BodySite, Inflamm = Inflamm)
+#         hasi_r_num(BodySite = BodySite, Inflamm = Inflamm)
 #       )
 #   )
 # 

@@ -19,12 +19,12 @@
 #' timepoint_fistula <- c(2, 1, 3)
 #' percentage <- 50
 #'
-#' hiscr_response <- calculate_hiscr(baseline_abscess, baseline_nodule, baseline_fistula,
+#' hiscr_response <- hiscr(baseline_abscess, baseline_nodule, baseline_fistula,
 #'                                   timepoint_abscess, timepoint_nodule, timepoint_fistula,
 #'                                   percentage)
 #' 
 
-calculate_hiscr <- function(baseline_abscess, baseline_nodule, baseline_fistula,
+hiscr <- function(baseline_abscess, baseline_nodule, baseline_fistula,
                             timepoint_abscess, timepoint_nodule, timepoint_fistula,
                             percentage) {
   
