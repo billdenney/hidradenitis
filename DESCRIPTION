@@ -18,3 +18,5 @@ Suggests:
 Config/testthat/edition: 3
 URL: https://billdenney.github.io/hidradenitis/
 Language: en-US
+Imports: 
+    checkmate
