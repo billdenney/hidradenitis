@@ -36,7 +36,7 @@
 #' Tunnels <- c(0, 1, 2, 0, 2, 0, 2, 0)
 #'
 #' # hasi_r_scores <-
-#' #   calculate_hasi_r(
+#' #   hasi_r_num(
 #' #     patientID, visitDY, BodySite,
 #' #     InflammColorChg, Induration, OpenSkinSurface,
 #' #     Tunnels
@@ -46,14 +46,13 @@
 
 # Rethinking ideas due to https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8573730/
 
-calculate_hasi_r <- function(patientID, visitDY, BodySite, BSA, InflammColorChg, Induration, OpenSkinSurface, Tunnels) {
-  stop("Not yet implemented")
+hasi_r_num <- function(patientID, visitDY, BodySite, BSA, InflammColorChg, Induration, OpenSkinSurface, Tunnels) {
   checkmate::assert_character(patientID, any.missing = FALSE, null.ok = FALSE)
-  checkmate::assert_character(visitDY, any.missing = FALSE, null.ok = FALSE)
   checkmate::assert_character(BodySite, any.missing = FALSE, null.ok = FALSE)
-  #checkmate::assert_integerish(BSA, lower = 0, upper = 6, any.missing = FALSE, null.ok = FALSE)
 
   # The trick to these is that the current data will need a separation of numeric and character indicators.
+  checkmate::assert_integerish(BSA, lower = 0, upper = 6, any.missing = FALSE, null.ok = FALSE)
+  checkmate::assert_integerish(visitDY, any.missing = FALSE, null.ok = FALSE)
   checkmate::assert_integerish(InflammColorChg, lower = 0, upper = 3, any.missing = FALSE, null.ok = FALSE)
   checkmate::assert_integerish(Induration, lower = 0, upper = 3, any.missing = FALSE, null.ok = FALSE)
   checkmate::assert_integerish(OpenSkinSurface, lower = 0, upper = 3, any.missing = FALSE, null.ok = FALSE)
@@ -65,7 +64,7 @@ calculate_hasi_r <- function(patientID, visitDY, BodySite, BSA, InflammColorChg,
       patientID,
       visitDY,
       BodySite,
-      # BSA,
+      BSA,
       InflammColorChg,
       Induration,
       OpenSkinSurface,
@@ -93,10 +92,10 @@ calculate_hasi_r <- function(patientID, visitDY, BodySite, BSA, InflammColorChg,
 #   summarize(
 #     HASI_R =
 #       list(
-#         calculate_hasi_r(BodySite = BodySite, Inflamm = Inflamm)
+#         hasi_r_num(BodySite = BodySite, Inflamm = Inflamm)
 #       )
 #   )
-#
+# 
 # data_with_hasi <-
 #   data_with_hasi_nested |>
 #   unnest("HASI_R")
