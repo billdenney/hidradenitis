@@ -26,8 +26,8 @@
 #' visitDY <- c(1, 1, 2, 2, 1, 1, 2, 2)
 #' BodySite <-
 #'   c(
-#'     "Axillae", "Groin", "Axillae", "Groin",
-#'     "Axillae", "Groin", "Axillae", "Groin"
+#'     "Left Axilla", "Chest", "Left Axilla", "Chest",
+#'     "Left Axilla", "Chest", "Left Axilla", "Chest"
 #'   )
 #' BSA <- c(1, 2, 1, 2, 2, 1, 2, 1)
 #' InflammColorChg <- c(1, 2, 1, 2, 2, 1, 2, 1)
@@ -37,7 +37,7 @@
 #'
 #' # hasi_r_scores <-
 #' #   hasi_r_num(
-#' #     patientID, visitDY, BodySite,
+#' #     patientID, visitDY, BodySite, BSA,
 #' #     InflammColorChg, Induration, OpenSkinSurface,
 #' #     Tunnels
 #' #   )
@@ -49,6 +49,17 @@
 hasi_r_num <- function(patientID, visitDY, BodySite, BSA, InflammColorChg, Induration, OpenSkinSurface, Tunnels) {
   checkmate::assert_character(patientID, any.missing = FALSE, null.ok = FALSE)
   checkmate::assert_character(BodySite, any.missing = FALSE, null.ok = FALSE)
+  checkmate::assert_subset(BodySite, choices = c("Right Axilla",
+                                                 "Buttocks including Intergluteal Cleft",
+                                                 "Back",
+                                                 "Left Thigh",
+                                                 "Head & Neck",
+                                                 "Left Axilla",
+                                                 "Chest",
+                                                 "Pubis & Genitals",
+                                                 "Abdomen",
+                                                 "Right Thigh"))
+  
 
   # The trick to these is that the current data will need a separation of numeric and character indicators.
   checkmate::assert_integerish(BSA, lower = 0, upper = 6, any.missing = FALSE, null.ok = FALSE)

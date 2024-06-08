@@ -48,8 +48,8 @@ patientID <-
 visitDY <- c(1, 1, 2, 2, 1, 1, 2, 2)
 BodySite <-
   c(
-    "Axillae", "Groin", "Axillae", "Groin",
-    "Axillae", "Groin", "Axillae", "Groin"
+    "Left Axilla", "Chest", "Left Axilla", "Chest",
+    "Left Axilla", "Chest", "Left Axilla", "Chest"
   )
 BSA <- c(1, 2, 1, 2, 2, 1, 2, 1)
 InflammColorChg <- c(1, 2, 1, 2, 2, 1, 2, 1)
@@ -59,7 +59,7 @@ Tunnels <- c(0, 1, 2, 0, 2, 0, 2, 0)
 
 # hasi_r_scores <-
 #   hasi_r_num(
-#     patientID, visitDY, BodySite,
+#     patientID, visitDY, BodySite, BSA,
 #     InflammColorChg, Induration, OpenSkinSurface,
 #     Tunnels
 #   )
