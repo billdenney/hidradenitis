@@ -49,7 +49,7 @@
 hasi_r_num <- function(patientID, visitDY, BodySite, BSA, InflammColorChg, Induration, OpenSkinSurface, Tunnels) {
   checkmate::assert_character(patientID, any.missing = FALSE, null.ok = FALSE)
   checkmate::assert_character(BodySite, any.missing = FALSE, null.ok = FALSE)
-  checkmate::assert_subset(BodySite, choices = c("Right Axilla",
+  checkmate::assert_permutation(x = BodySite, y = c("Right Axilla",
                                                  "Buttocks including Intergluteal Cleft",
                                                  "Back",
                                                  "Left Thigh",
@@ -58,17 +58,27 @@ hasi_r_num <- function(patientID, visitDY, BodySite, BSA, InflammColorChg, Indur
                                                  "Chest",
                                                  "Pubis & Genitals",
                                                  "Abdomen",
-                                                 "Right Thigh"))
+                                                 "Right Thigh"), na.ok = TRUE)
   
 
   # The trick to these is that the current data will need a separation of numeric and character indicators.
-  checkmate::assert_integerish(BSA, lower = 0, upper = 6, any.missing = FALSE, null.ok = FALSE)
   checkmate::assert_integerish(visitDY, any.missing = FALSE, null.ok = FALSE)
   checkmate::assert_integerish(InflammColorChg, lower = 0, upper = 3, any.missing = FALSE, null.ok = FALSE)
   checkmate::assert_integerish(Induration, lower = 0, upper = 3, any.missing = FALSE, null.ok = FALSE)
   checkmate::assert_integerish(OpenSkinSurface, lower = 0, upper = 3, any.missing = FALSE, null.ok = FALSE)
   checkmate::assert_integerish(Tunnels, lower = 0, upper = 3, any.missing = FALSE, null.ok = FALSE)
 
+  checkmate::assert_numeric(BSA[BodySite == "Head & Neck"], lower = 0, upper = 10, any.missing = FALSE)
+  checkmate::assert_numeric(BSA[BodySite == "Left Axilla"], lower = 0, upper = 2, any.missing = FALSE)
+  checkmate::assert_numeric(BSA[BodySite == "Right Axilla"], lower = 0, upper = 2, any.missing = FALSE)
+  checkmate::assert_numeric(BSA[BodySite == "Chest"], lower = 0, upper = 9, any.missing = FALSE)
+  checkmate::assert_numeric(BSA[BodySite == "Abdomen"], lower = 0, upper = 9, any.missing = FALSE)
+  checkmate::assert_numeric(BSA[BodySite == "Pubis & Genitals"], lower = 0, upper = 2, any.missing = FALSE)
+  checkmate::assert_numeric(BSA[BodySite == "Back"], lower = 0, upper = 15, any.missing = FALSE)
+  checkmate::assert_numeric(BSA[BodySite == "Buttocks including Intergluteal Cleft"], lower = 0, upper = 9, any.missing = FALSE)
+  checkmate::assert_numeric(BSA[BodySite == "Left Thigh"], lower = 0, upper = 9, any.missing = FALSE)
+  checkmate::assert_numeric(BSA[BodySite == "Right Thigh"], lower = 0, upper = 9, any.missing = FALSE)
+  
   # Combine input vectors into a data frame
   data <-
     data.frame(
