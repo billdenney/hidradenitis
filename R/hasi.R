@@ -6,10 +6,8 @@
 #'   psychometric property assessment. Br J Dermatol. 2021 May;184(5):905-912.
 #'   doi: 10.1111/bjd.19565. Epub 2020 Dec 30. PMID: 32969027; PMCID:
 #'   PMC8573730.
-#' @param patientID Character vector representing patient IDs.
-#' @param visitDY Integer vector representing visit days.
-#' @param BodySite Character vector representing body sites.
-#' @param BSA Integer vector representing body surface area scores (0-6).
+#' 
+#' @inheritParams hasi_bsa_to_ordinal
 #' @param InflammColorChg Integer vector representing inflammatory color change scores (0-3).
 #' @param Induration Integer vector representing induration scores (0-3).
 #' @param OpenSkinSurface Integer vector representing open skin surface scores (0-3).
@@ -46,80 +44,30 @@
 
 # Rethinking ideas due to https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8573730/
 
-hasi_r_num <- function(patientID, visitDY, BodySite, BSA, InflammColorChg, Induration, OpenSkinSurface, Tunnels) {
-  checkmate::assert_character(patientID, any.missing = FALSE, null.ok = FALSE)
-  checkmate::assert_character(BodySite, any.missing = FALSE, null.ok = FALSE)
-  checkmate::assert_permutation(x = BodySite, y = c("Right Axilla",
-                                                 "Buttocks including Intergluteal Cleft",
-                                                 "Back",
-                                                 "Left Thigh",
-                                                 "Head & Neck",
-                                                 "Left Axilla",
-                                                 "Chest",
-                                                 "Pubis & Genitals",
-                                                 "Abdomen",
-                                                 "Right Thigh"), na.ok = TRUE)
+hasi_r_num <- function(bsa_percent_total_body = NULL, bsa_percent_within_site = NULL,
+                       bsa_ordinal = NULL, bodysite = NULL, inflam_color_chg,
+                       induration, open_skin_surface, tunnels) {
   
+  bsa_ordinal <- hasi_bsa_to_ordinal(bsa_percent_total_body = bsa_percent_total_body, bsa_percent_within_site = bsa_percent_within_site,
+                      bsa_ordinal = bsa_ordinal, bodysite = bodysite)
 
   # The trick to these is that the current data will need a separation of numeric and character indicators.
-  checkmate::assert_integerish(visitDY, any.missing = FALSE, null.ok = FALSE)
-  checkmate::assert_integerish(InflammColorChg, lower = 0, upper = 3, any.missing = FALSE, null.ok = FALSE)
-  checkmate::assert_integerish(Induration, lower = 0, upper = 3, any.missing = FALSE, null.ok = FALSE)
-  checkmate::assert_integerish(OpenSkinSurface, lower = 0, upper = 3, any.missing = FALSE, null.ok = FALSE)
-  checkmate::assert_integerish(Tunnels, lower = 0, upper = 3, any.missing = FALSE, null.ok = FALSE)
-
-  checkmate::assert_numeric(BSA[BodySite == "Head & Neck"], lower = 0, upper = 10, any.missing = FALSE)
-  checkmate::assert_numeric(BSA[BodySite == "Left Axilla"], lower = 0, upper = 2, any.missing = FALSE)
-  checkmate::assert_numeric(BSA[BodySite == "Right Axilla"], lower = 0, upper = 2, any.missing = FALSE)
-  checkmate::assert_numeric(BSA[BodySite == "Chest"], lower = 0, upper = 9, any.missing = FALSE)
-  checkmate::assert_numeric(BSA[BodySite == "Abdomen"], lower = 0, upper = 9, any.missing = FALSE)
-  checkmate::assert_numeric(BSA[BodySite == "Pubis & Genitals"], lower = 0, upper = 2, any.missing = FALSE)
-  checkmate::assert_numeric(BSA[BodySite == "Back"], lower = 0, upper = 15, any.missing = FALSE)
-  checkmate::assert_numeric(BSA[BodySite == "Buttocks including Intergluteal Cleft"], lower = 0, upper = 9, any.missing = FALSE)
-  checkmate::assert_numeric(BSA[BodySite == "Left Thigh"], lower = 0, upper = 9, any.missing = FALSE)
-  checkmate::assert_numeric(BSA[BodySite == "Right Thigh"], lower = 0, upper = 9, any.missing = FALSE)
-  
-  # Combine input vectors into a data frame
-  data <-
-    data.frame(
-      patientID,
-      visitDY,
-      BodySite,
-      BSA,
-      InflammColorChg,
-      Induration,
-      OpenSkinSurface,
-      Tunnels
-    )
+  checkmate::assert_integerish(InflammColorChg, lower = 0, upper = 3, any.missing = TRUE, null.ok = FALSE)
+  checkmate::assert_integerish(Induration, lower = 0, upper = 3, any.missing = TRUE, null.ok = FALSE)
+  checkmate::assert_integerish(OpenSkinSurface, lower = 0, upper = 3, any.missing = TRUE, null.ok = FALSE)
+  checkmate::assert_integerish(Tunnels, lower = 0, upper = 3, any.missing = TRUE, null.ok = FALSE)
 
   # Calculate the sum of scores for each component for each body site
-  data$severity_index <- rowSums(data[, c("InflammColorChg", "Induration", "OpenSkinSurface", "Tunnels")])
+  severity_index <- InflammColorChg + Induration + OpenSkinSurface + Tunnels
 
   # Multiply severity index by BSA - Main Calculation
-  data$site_score <- data$severity_index * data$BSA
+  site_score <- severity_index * bsa_ordinal
 
   # Splitting data
-  hasi_r_scores <- stats::aggregate(site_score ~ patientID + visitDY, data, sum)
-
-  # Rename
-  colnames(hasi_r_scores)[colnames(hasi_r_scores) == "site_score"] <- "HASI_R_Score"
+  hasi_r_scores <- sum(site_score)
 
   hasi_r_scores
 }
-
-# data_with_hasi_nested <-
-#   source_data |>
-#   group_by(STUDYID, USUBJID, VISITDY) |>
-#   summarize(
-#     HASI_R =
-#       list(
-#         hasi_r_num(BodySite = BodySite, Inflamm = Inflamm)
-#       )
-#   )
-# 
-# data_with_hasi <-
-#   data_with_hasi_nested |>
-#   unnest("HASI_R")
 
 
 

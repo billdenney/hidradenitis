@@ -5,24 +5,24 @@
 \title{Calculates the HASI-R score for each patient and visit.}
 \usage{
 hasi_r_num(
-  patientID,
-  visitDY,
-  BodySite,
-  BSA,
-  InflammColorChg,
-  Induration,
-  OpenSkinSurface,
-  Tunnels
+  bsa_percent_total_body = NULL,
+  bsa_percent_within_site = NULL,
+  bsa_ordinal = NULL,
+  bodysite = NULL,
+  inflam_color_chg,
+  induration,
+  open_skin_surface,
+  tunnels
 )
 }
 \arguments{
-\item{patientID}{Character vector representing patient IDs.}
+\item{bsa_percent_total_body}{Numeric vector representing BSA percentages. (0-15, depending on site)}
 
-\item{visitDY}{Integer vector representing visit days.}
+\item{bsa_percent_within_site}{Numeric vector representing BSA percentages. (0-100)}
 
-\item{BodySite}{Character vector representing body sites.}
+\item{bsa_ordinal}{Numeric vector representing BSA values. (0-6)}
 
-\item{BSA}{Integer vector representing body surface area scores (0-6).}
+\item{bodysite}{Optional character vector representing body sites.}
 
 \item{InflammColorChg}{Integer vector representing inflammatory color change scores (0-3).}
 
