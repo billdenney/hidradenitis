@@ -5,8 +5,8 @@
 \title{Calculates the HASI-R score for each patient and visit.}
 \usage{
 hasi_r_num(
-  bsa_percent_total_body = NULL,
   bsa_percent_within_site = NULL,
+  bsa_percent_total_body = NULL,
   bsa_ordinal = NULL,
   bodysite = NULL,
   inflam_color_chg,
@@ -16,21 +16,21 @@ hasi_r_num(
 )
 }
 \arguments{
-\item{bsa_percent_total_body}{Numeric vector representing BSA percentages. (0-15, depending on site)}
-
 \item{bsa_percent_within_site}{Numeric vector representing BSA percentages. (0-100)}
+
+\item{bsa_percent_total_body}{Numeric vector representing BSA percentages. (0-15, depending on site)}
 
 \item{bsa_ordinal}{Numeric vector representing BSA values. (0-6)}
 
 \item{bodysite}{Optional character vector representing body sites.}
 
-\item{InflammColorChg}{Integer vector representing inflammatory color change scores (0-3).}
+\item{inflam_color_chg}{Integer vector representing inflammatory color change scores (0-3).}
 
-\item{Induration}{Integer vector representing induration scores (0-3).}
+\item{induration}{Integer vector representing induration scores (0-3).}
 
-\item{OpenSkinSurface}{Integer vector representing open skin surface scores (0-3).}
+\item{open_skin_surface}{Integer vector representing open skin surface scores (0-3).}
 
-\item{Tunnels}{Integer vector representing tunnels scores (0-3).}
+\item{tunnels}{Integer vector representing tunnels scores (0-3).}
 }
 \value{
 A data frame with patientID, visitDY, and the calculated HASI-R score.

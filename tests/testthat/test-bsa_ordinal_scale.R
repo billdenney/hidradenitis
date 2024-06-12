@@ -1,4 +1,4 @@
-test_that("convert_bsa_to_ordinal NA", {
+test_that("convert_bsa_to_ordinal NA - error", {
   expect_equal(
     hasi_bsa_to_ordinal(NA_real_),
     NA_integer_

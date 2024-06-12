@@ -5,16 +5,16 @@
 \title{Converts BSA percentage to the ordinal scale for HASI-R scoring.}
 \usage{
 hasi_bsa_to_ordinal(
-  bsa_percent_total_body = NULL,
   bsa_percent_within_site = NULL,
+  bsa_percent_total_body = NULL,
   bsa_ordinal = NULL,
   bodysite = NULL
 )
 }
 \arguments{
-\item{bsa_percent_total_body}{Numeric vector representing BSA percentages. (0-15, depending on site)}
-
 \item{bsa_percent_within_site}{Numeric vector representing BSA percentages. (0-100)}
+
+\item{bsa_percent_total_body}{Numeric vector representing BSA percentages. (0-15, depending on site)}
 
 \item{bsa_ordinal}{Numeric vector representing BSA values. (0-6)}
 
@@ -29,7 +29,7 @@ Converts BSA percentage to the ordinal scale for HASI-R scoring.
 \examples{
 
 bsa_percent <- c(0, 2, 5, 12, 25, 40, 75)
-bsa_ordinal <- hasi_bsa_to_ordinal(bsa_percent)
-bsa_ordinal
+hasi_bsa_to_ordinal(bsa_percent)
+
 
 }

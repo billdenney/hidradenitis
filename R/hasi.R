@@ -8,10 +8,10 @@
 #'   PMC8573730.
 #' 
 #' @inheritParams hasi_bsa_to_ordinal
-#' @param InflammColorChg Integer vector representing inflammatory color change scores (0-3).
-#' @param Induration Integer vector representing induration scores (0-3).
-#' @param OpenSkinSurface Integer vector representing open skin surface scores (0-3).
-#' @param Tunnels Integer vector representing tunnels scores (0-3).
+#' @param inflam_color_chg Integer vector representing inflammatory color change scores (0-3).
+#' @param induration Integer vector representing induration scores (0-3).
+#' @param open_skin_surface Integer vector representing open skin surface scores (0-3).
+#' @param tunnels Integer vector representing tunnels scores (0-3).
 #' @return A data frame with patientID, visitDY, and the calculated HASI-R score.
 #' @export
 #' @examples
@@ -44,12 +44,17 @@
 
 # Rethinking ideas due to https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8573730/
 
-hasi_r_num <- function(bsa_percent_total_body = NULL, bsa_percent_within_site = NULL,
+hasi_r_num <- function(bsa_percent_within_site = NULL, bsa_percent_total_body = NULL,
                        bsa_ordinal = NULL, bodysite = NULL, inflam_color_chg,
                        induration, open_skin_surface, tunnels) {
   
-  bsa_ordinal <- hasi_bsa_to_ordinal(bsa_percent_total_body = bsa_percent_total_body, bsa_percent_within_site = bsa_percent_within_site,
-                      bsa_ordinal = bsa_ordinal, bodysite = bodysite)
+  has_bsa_percent_within_site <- !is.null(bsa_percent_within_site)
+  has_bsa_percent_total_body <- !is.null(bsa_percent_total_body)
+  has_bsa_ordinal <- !is.null(bsa_ordinal)
+  
+  if (has_bsa_percent_within_site){
+  bsa_ordinal <- hasi_bsa_to_ordinal(bsa_percent_within_site)
+  }
 
   # The trick to these is that the current data will need a separation of numeric and character indicators.
   checkmate::assert_integerish(InflammColorChg, lower = 0, upper = 3, any.missing = TRUE, null.ok = FALSE)
