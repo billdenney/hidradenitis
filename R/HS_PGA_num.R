@@ -1,5 +1,11 @@
 #' Calculates HS-PGA scores based on abscess, draining fistula, and inflammatory nodule counts.
 #'
+#'
+#' @references Marzano, A V et al. “Creation of a severity index for
+#'   hidradenitis suppurativa that includes a validated quality-of-life
+#'   measure: the HIDRAscore.” Journal of the European Academy of Dermatology
+#'   and Venereology : JEADV vol. 34,8 (2020): 1815-1821. doi:10.1111/jdv.16328
+#'
 #' @param abscess_fistula Integer vector representing the sum of abscess and draining fistula counts.
 #' @param inflammatory_nodule Integer vector representing the inflammatory nodule count.
 #' @param non_inflammatory_nodule Integer vector representing the non-inflammatory nodule count.

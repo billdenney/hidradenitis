@@ -1,5 +1,12 @@
 #' Converts BSA percentage to the ordinal scale for HASI-R scoring.
 #'
+#'
+#' @references Goldfarb N, Lowes MA, Butt M, King T, Alavi A, Kirby JS.
+#'   Hidradenitis Suppurativa Area and Severity Index Revised (HASI-R):
+#'   psychometric property assessment. Br J Dermatol. 2021 May;184(5):905-912.
+#'   doi: 10.1111/bjd.19565. Epub 2020 Dec 30. PMID: 32969027; PMCID:
+#'   PMC8573730.
+#'   
 #' @param bsa_percent_within_site Numeric vector representing BSA percentages. (0-100)
 #' @param bsa_percent_total_body Numeric vector representing BSA percentages. (0-15, depending on site)
 #' @param bsa_ordinal Numeric vector representing BSA values. (0-6)

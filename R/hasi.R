@@ -53,17 +53,17 @@ hasi_r_num <- function(bsa_percent_within_site = NULL, bsa_percent_total_body = 
   has_bsa_ordinal <- !is.null(bsa_ordinal)
   
   if (has_bsa_percent_within_site){
-  bsa_ordinal <- hasi_bsa_to_ordinal(bsa_percent_within_site)
+  bsa_ordinal <- hasi_bsa_to_ordinal(bsa_percent_within_site, bodysite = bodysite)
   }
 
   # The trick to these is that the current data will need a separation of numeric and character indicators.
-  checkmate::assert_integerish(InflammColorChg, lower = 0, upper = 3, any.missing = TRUE, null.ok = FALSE)
-  checkmate::assert_integerish(Induration, lower = 0, upper = 3, any.missing = TRUE, null.ok = FALSE)
-  checkmate::assert_integerish(OpenSkinSurface, lower = 0, upper = 3, any.missing = TRUE, null.ok = FALSE)
-  checkmate::assert_integerish(Tunnels, lower = 0, upper = 3, any.missing = TRUE, null.ok = FALSE)
+  checkmate::assert_integerish(inflam_color_chg, lower = 0, upper = 3, any.missing = TRUE, null.ok = FALSE)
+  checkmate::assert_integerish(induration, lower = 0, upper = 3, any.missing = TRUE, null.ok = FALSE)
+  checkmate::assert_integerish(open_skin_surface, lower = 0, upper = 3, any.missing = TRUE, null.ok = FALSE)
+  checkmate::assert_integerish(tunnels, lower = 0, upper = 3, any.missing = TRUE, null.ok = FALSE)
 
   # Calculate the sum of scores for each component for each body site
-  severity_index <- InflammColorChg + Induration + OpenSkinSurface + Tunnels
+  severity_index <- inflam_color_chg + induration + open_skin_surface + tunnels
 
   # Multiply severity index by BSA - Main Calculation
   site_score <- severity_index * bsa_ordinal
