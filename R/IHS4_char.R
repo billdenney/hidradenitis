@@ -1,5 +1,11 @@
 #' Converts IHS4 numerical scores to character values.
 #'
+#'
+#' @references Zouboulis, C C et al. “Development and validation of the
+#'   International Hidradenitis Suppurativa Severity Score System (IHS4),
+#'   a novel dynamic scoring system to assess HS severity.” The British
+#'   journal of dermatology vol. 177,5 (2017): 1401-1409. doi:10.1111/bjd.15748
+#'
 #' @param IHS4_scores An integer vector representing the IHS4 scores (0-3: Mild, 4-10: Moderate, >=11: Severe).
 #' @return A character vector representing the corresponding IHS4 categories.
 #' @export

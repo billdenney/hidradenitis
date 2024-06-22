@@ -1,5 +1,12 @@
 #' Calculates HiSCR scores given a percentage parameter.
 #'
+#'
+#' @references Kimball, A B et al. “HiSCR (Hidradenitis Suppurativa Clinical Response):
+#'   a novel clinical endpoint to evaluate therapeutic outcomes in patients with 
+#'   hidradenitis suppurativa from the placebo-controlled portion of a phase 2 adalimumab study.”
+#'   Journal of the European Academy of Dermatology and Venereology :
+#'   JEADV vol. 30,6 (2016): 989-94. doi:10.1111/jdv.13216
+#'
 #' @param baseline_abscess Integer vector representing the abscess count at baseline.
 #' @param baseline_nodule Integer vector representing the inflammatory nodule count at baseline.
 #' @param baseline_fistula Integer vector representing the draining fistula count at baseline.

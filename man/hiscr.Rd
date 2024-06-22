@@ -49,3 +49,10 @@ hiscr_response <- hiscr(baseline_abscess, baseline_nodule, baseline_fistula,
                                   timepoint_abscess, timepoint_nodule, timepoint_fistula,
                                   percentage)
 }
+\references{
+Kimball, A B et al. “HiSCR (Hidradenitis Suppurativa Clinical Response):
+a novel clinical endpoint to evaluate therapeutic outcomes in patients with
+hidradenitis suppurativa from the placebo-controlled portion of a phase 2 adalimumab study.”
+Journal of the European Academy of Dermatology and Venereology :
+JEADV vol. 30,6 (2016): 989-94. doi:10.1111/jdv.13216
+}

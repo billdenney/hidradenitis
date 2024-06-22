@@ -2,7 +2,7 @@
 
 export(IHS4_char)
 export(IHS4_num)
-export(convert_bsa_to_ordinal)
+export(hasi_bsa_to_ordinal)
 export(hasi_r_num)
 export(hiscr)
 export(hs_pga_char)

@@ -28,3 +28,9 @@ draining_tunnels <- c(1, 2, 3)
 IHS4_num(nodules, abscesses, draining_tunnels)
 
 }
+\references{
+Zouboulis, C C et al. “Development and validation of the
+International Hidradenitis Suppurativa Severity Score System (IHS4),
+a novel dynamic scoring system to assess HS severity.” The British
+journal of dermatology vol. 177,5 (2017): 1401-1409. doi:10.1111/bjd.15748
+}

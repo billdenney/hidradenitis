@@ -5,32 +5,32 @@
 \title{Calculates the HASI-R score for each patient and visit.}
 \usage{
 hasi_r_num(
-  patientID,
-  visitDY,
-  BodySite,
-  BSA,
-  InflammColorChg,
-  Induration,
-  OpenSkinSurface,
-  Tunnels
+  bsa_percent_within_site = NULL,
+  bsa_percent_total_body = NULL,
+  bsa_ordinal = NULL,
+  bodysite = NULL,
+  inflam_color_chg,
+  induration,
+  open_skin_surface,
+  tunnels
 )
 }
 \arguments{
-\item{patientID}{Character vector representing patient IDs.}
+\item{bsa_percent_within_site}{Numeric vector representing BSA percentages. (0-100)}
 
-\item{visitDY}{Integer vector representing visit days.}
+\item{bsa_percent_total_body}{Numeric vector representing BSA percentages. (0-15, depending on site)}
 
-\item{BodySite}{Character vector representing body sites.}
+\item{bsa_ordinal}{Numeric vector representing BSA values. (0-6)}
 
-\item{BSA}{Integer vector representing body surface area scores (0-6).}
+\item{bodysite}{Optional character vector representing body sites.}
 
-\item{InflammColorChg}{Integer vector representing inflammatory color change scores (0-3).}
+\item{inflam_color_chg}{Integer vector representing inflammatory color change scores (0-3).}
 
-\item{Induration}{Integer vector representing induration scores (0-3).}
+\item{induration}{Integer vector representing induration scores (0-3).}
 
-\item{OpenSkinSurface}{Integer vector representing open skin surface scores (0-3).}
+\item{open_skin_surface}{Integer vector representing open skin surface scores (0-3).}
 
-\item{Tunnels}{Integer vector representing tunnels scores (0-3).}
+\item{tunnels}{Integer vector representing tunnels scores (0-3).}
 }
 \value{
 A data frame with patientID, visitDY, and the calculated HASI-R score.
@@ -48,8 +48,8 @@ patientID <-
 visitDY <- c(1, 1, 2, 2, 1, 1, 2, 2)
 BodySite <-
   c(
-    "Axillae", "Groin", "Axillae", "Groin",
-    "Axillae", "Groin", "Axillae", "Groin"
+    "Left Axilla", "Chest", "Left Axilla", "Chest",
+    "Left Axilla", "Chest", "Left Axilla", "Chest"
   )
 BSA <- c(1, 2, 1, 2, 2, 1, 2, 1)
 InflammColorChg <- c(1, 2, 1, 2, 2, 1, 2, 1)
@@ -59,7 +59,7 @@ Tunnels <- c(0, 1, 2, 0, 2, 0, 2, 0)
 
 # hasi_r_scores <-
 #   hasi_r_num(
-#     patientID, visitDY, BodySite,
+#     patientID, visitDY, BodySite, BSA,
 #     InflammColorChg, Induration, OpenSkinSurface,
 #     Tunnels
 #   )

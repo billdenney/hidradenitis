@@ -21,3 +21,9 @@ hs_pga_scores <- c(1, 2, 3, 4, 5, 6)
 hs_pga_char(hs_pga_scores)
 
 }
+\references{
+Marzano, A V et al. “Creation of a severity index for
+hidradenitis suppurativa that includes a validated quality-of-life
+measure: the HIDRAscore.” Journal of the European Academy of Dermatology
+and Venereology : JEADV vol. 34,8 (2020): 1815-1821. doi:10.1111/jdv.16328
+}

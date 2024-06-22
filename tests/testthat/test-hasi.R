@@ -1,6 +1,22 @@
-test_that("Simple case with one patient, one visit, and one body site", {
-  patientID <- c("000-001")
-  visitDY <- c(1)
+test_that("Error with lack of all BodySites", {
+  BodySite <- c("Right Axilla")
+  BSA <- c(1)
+  InflammColorChg <- c(1)
+  Induration <- c(1)
+  OpenSkinSurface <- c(1)
+  Tunnels <- c(1)
+  
+  expect_error(hasi_r_num(bsa_percent_within_site = BSA,
+                          bsa_percent_total_body = NULL,
+                          bsa_ordinal = NULL,
+                          bodysite = BodySite,
+                          inflam_color_chg = InflammColorChg,
+                          induration = Induration,
+                          open_skin_surface = OpenSkinSurface,
+                          tunnels = Tunnels))
+})
+
+test_that("Error with Incorrect BodySite", {
   BodySite <- c("Axillae")
   BSA <- c(1)
   InflammColorChg <- c(1)
@@ -8,8 +24,115 @@ test_that("Simple case with one patient, one visit, and one body site", {
   OpenSkinSurface <- c(1)
   Tunnels <- c(1)
   
-  expected <- data.frame(patientID = "000-001", visitDY = 1, HASI_R_Score = 4)
-  result <- hasi_r_num(patientID, visitDY, BodySite, BSA, InflammColorChg, Induration, OpenSkinSurface, Tunnels)
-  
-  expect_equal(result, expected)
+  expect_error(hasi_r_num(bsa_percent_within_site = BSA,
+                          bsa_percent_total_body = NULL,
+                          bsa_ordinal = NULL,
+                          bodysite = BodySite,
+                          inflam_color_chg = InflammColorChg,
+                          induration = Induration,
+                          open_skin_surface = OpenSkinSurface,
+                          tunnels = Tunnels))
 })
+
+# Test with a full example containing all BodySites
+test_that("hasi_r_num works with full example", {
+  BodySite <- c("Right Axilla", "Buttocks including Intergluteal Cleft", "Back", "Left Thigh", "Head & Neck", "Left Axilla", "Chest", "Pubis & Genitals", "Abdomen", "Right Thigh")
+  BSA <- c(12, 5, 12, 34, 55, 16, 22, 9, 23, 75)
+  InflammColorChg <- rep(2, 10)
+  Induration <- rep(1, 10)
+  OpenSkinSurface <- rep(3, 10)
+  Tunnels <- rep(0, 10)
+  expect_equal(hasi_r_num(bsa_percent_within_site = BSA,
+                          bsa_percent_total_body = NULL,
+                          bsa_ordinal = NULL,
+                          bodysite = BodySite,
+                          inflam_color_chg = InflammColorChg,
+                          induration = Induration,
+                          open_skin_surface = OpenSkinSurface,
+                          tunnels = Tunnels),
+               228)
+})
+
+# Test with missing BodySite: "Right Axilla"
+test_that("hasi_r_num gives error with missing Right Axilla", {
+  BodySite <- c("Buttocks including Intergluteal Cleft", "Back", "Left Thigh", "Head & Neck", "Left Axilla", "Chest", "Pubis & Genitals", "Abdomen", "Right Thigh")
+  BSA <- c(8.5, 14, 8, 9, 1.5, 8, 1.5, 8, 8)
+  InflammColorChg <- rep(2, 9)
+  Induration <- rep(1, 9)
+  OpenSkinSurface <- rep(3, 9)
+  Tunnels <- rep(0, 9)
+  expect_error(hasi_r_num(bsa_percent_within_site = BSA,
+                          bsa_percent_total_body = NULL,
+                          bsa_ordinal = NULL,
+                          bodysite = BodySite,
+                          inflam_color_chg = InflammColorChg,
+                          induration = Induration,
+                          open_skin_surface = OpenSkinSurface,
+                          tunnels = Tunnels))
+})
+
+# Test with incorrect data type for BSA
+test_that("hasi_r_num gives error with incorrect data type for BSA", {
+  BodySite <- c("Right Axilla", "Buttocks including Intergluteal Cleft", "Back", "Left Thigh", "Head & Neck", "Left Axilla", "Chest", "Pubis & Genitals", "Abdomen", "Right Thigh")
+  BSA <- as.character(c(1.5, 8.5, 14, 8, 9, 1.5, 8, 1.5, 8, 8))
+  InflammColorChg <- rep(2, 10)
+  Induration <- rep(1, 10)
+  OpenSkinSurface <- rep(3, 10)
+  Tunnels <- rep(0, 10)
+  expect_error(hasi_r_num(bsa_percent_within_site = BSA,
+                          bsa_percent_total_body = NULL,
+                          bsa_ordinal = NULL,
+                          bodysite = BodySite,
+                          inflam_color_chg = InflammColorChg,
+                          induration = Induration,
+                          open_skin_surface = OpenSkinSurface,
+                          tunnels = Tunnels))
+})
+
+# Test with missing BodySite: "Head & Neck"
+test_that("hasi_r_num gives error with missing Head & Neck", {
+  BodySite <- c("Right Axilla", "Buttocks including Intergluteal Cleft", "Back", "Left Thigh", "Left Axilla", "Chest", "Pubis & Genitals", "Abdomen", "Right Thigh")
+  BSA <- c(1.5, 8.5, 14, 8, 1.5, 8, 1.5, 8, 8)
+  InflammColorChg <- rep(2, 9)
+  Induration <- rep(1, 9)
+  OpenSkinSurface <- rep(3, 9)
+  Tunnels <- rep(0, 9)
+  expect_error(hasi_r_num(bsa_percent_within_site = BSA,
+                          bsa_percent_total_body = NULL,
+                          bsa_ordinal = NULL,
+                          bodysite = BodySite,
+                          inflam_color_chg = InflammColorChg,
+                          induration = Induration,
+                          open_skin_surface = OpenSkinSurface,
+                          tunnels = Tunnels))
+})
+
+# Test with missing argument InflammColorChg
+test_that("hasi_r_num gives error with missing InflammColorChg", {
+  patientID <- c("000-001", "000-001", "000-001", "000-001", "000-001", "000-001", "000-001", "000-001", "000-001", "000-001")
+  visitDY <- rep(1, 10)
+  BodySite <- c("Right Axilla", "Buttocks including Intergluteal Cleft", "Back", "Left Thigh", "Head & Neck", "Left Axilla", "Chest", "Pubis & Genitals", "Abdomen", "Right Thigh")
+  BSA <- c(1.5, 8.5, 14, 8, 9, 1.5, 8, 1.5, 8, 8)
+  Induration <- rep(1, 10)
+  OpenSkinSurface <- rep(3, 10)
+  Tunnels <- rep(0, 10)
+  expect_error(hasi_r_num(patientID, visitDY, BodySite, BSA, Induration, OpenSkinSurface, Tunnels))
+})
+
+# Test with incorrect data type for InflammColorChg
+test_that("hasi_r_num gives error with incorrect data type for InflammColorChg", {
+  patientID <- c("000-001", "000-001", "000-001", "000-001", "000-001", "000-001", "000-001", "000-001", "000-001", "000-001")
+  visitDY <- rep(1, 10)
+  BodySite <- c("Right Axilla", "Buttocks including Intergluteal Cleft", "Back", "Left Thigh", "Head & Neck", "Left Axilla", "Chest", "Pubis & Genitals", "Abdomen", "Right Thigh")
+  BSA <- c(1.5, 8.5, 14, 8, 9, 1.5, 8, 1.5, 8, 8)
+  InflammColorChg <- as.character(rep(2, 10))
+  Induration <- rep(1, 10)
+  OpenSkinSurface <- rep(3, 10)
+  Tunnels <- rep(0, 10)
+  expect_error(hasi_r_num(patientID, visitDY, BodySite, BSA, InflammColorChg, Induration, OpenSkinSurface, Tunnels))
+})
+
+
+
+
+
