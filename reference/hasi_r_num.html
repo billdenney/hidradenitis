@@ -43,48 +43,48 @@
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">hasi_r_num</span><span class="op">(</span></span>
-<span>  <span class="va">patientID</span>,</span>
-<span>  <span class="va">visitDY</span>,</span>
-<span>  <span class="va">BodySite</span>,</span>
-<span>  <span class="va">BSA</span>,</span>
-<span>  <span class="va">InflammColorChg</span>,</span>
-<span>  <span class="va">Induration</span>,</span>
-<span>  <span class="va">OpenSkinSurface</span>,</span>
-<span>  <span class="va">Tunnels</span></span>
+<span>  bsa_percent_within_site <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  bsa_percent_total_body <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  bsa_ordinal <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  bodysite <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  <span class="va">inflam_color_chg</span>,</span>
+<span>  <span class="va">induration</span>,</span>
+<span>  <span class="va">open_skin_surface</span>,</span>
+<span>  <span class="va">tunnels</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
-    <dl><dt>patientID</dt>
-<dd><p>Character vector representing patient IDs.</p></dd>
+    <dl><dt>bsa_percent_within_site</dt>
+<dd><p>Numeric vector representing BSA percentages. (0-100)</p></dd>
 
 
-<dt>visitDY</dt>
-<dd><p>Integer vector representing visit days.</p></dd>
+<dt>bsa_percent_total_body</dt>
+<dd><p>Numeric vector representing BSA percentages. (0-15, depending on site)</p></dd>
 
 
-<dt>BodySite</dt>
-<dd><p>Character vector representing body sites.</p></dd>
+<dt>bsa_ordinal</dt>
+<dd><p>Numeric vector representing BSA values. (0-6)</p></dd>
 
 
-<dt>BSA</dt>
-<dd><p>Integer vector representing body surface area scores (0-6).</p></dd>
+<dt>bodysite</dt>
+<dd><p>Optional character vector representing body sites.</p></dd>
 
 
-<dt>InflammColorChg</dt>
+<dt>inflam_color_chg</dt>
 <dd><p>Integer vector representing inflammatory color change scores (0-3).</p></dd>
 
 
-<dt>Induration</dt>
+<dt>induration</dt>
 <dd><p>Integer vector representing induration scores (0-3).</p></dd>
 
 
-<dt>OpenSkinSurface</dt>
+<dt>open_skin_surface</dt>
 <dd><p>Integer vector representing open skin surface scores (0-3).</p></dd>
 
 
-<dt>Tunnels</dt>
+<dt>tunnels</dt>
 <dd><p>Integer vector representing tunnels scores (0-3).</p></dd>
 
 </dl></div>
@@ -114,8 +114,8 @@ PMC8573730.</p>
 <span class="r-in"><span><span class="va">visitDY</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">BodySite</span> <span class="op">&lt;-</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>    <span class="st">"Axillae"</span>, <span class="st">"Groin"</span>, <span class="st">"Axillae"</span>, <span class="st">"Groin"</span>,</span></span>
-<span class="r-in"><span>    <span class="st">"Axillae"</span>, <span class="st">"Groin"</span>, <span class="st">"Axillae"</span>, <span class="st">"Groin"</span></span></span>
+<span class="r-in"><span>    <span class="st">"Left Axilla"</span>, <span class="st">"Chest"</span>, <span class="st">"Left Axilla"</span>, <span class="st">"Chest"</span>,</span></span>
+<span class="r-in"><span>    <span class="st">"Left Axilla"</span>, <span class="st">"Chest"</span>, <span class="st">"Left Axilla"</span>, <span class="st">"Chest"</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">BSA</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">InflammColorChg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span></span></span>
@@ -125,7 +125,7 @@ PMC8573730.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># hasi_r_scores &lt;-</span></span></span>
 <span class="r-in"><span><span class="co">#   hasi_r_num(</span></span></span>
-<span class="r-in"><span><span class="co">#     patientID, visitDY, BodySite,</span></span></span>
+<span class="r-in"><span><span class="co">#     patientID, visitDY, BodySite, BSA,</span></span></span>
 <span class="r-in"><span><span class="co">#     InflammColorChg, Induration, OpenSkinSurface,</span></span></span>
 <span class="r-in"><span><span class="co">#     Tunnels</span></span></span>
 <span class="r-in"><span><span class="co">#   )</span></span></span>
