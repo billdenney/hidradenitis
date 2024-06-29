@@ -1,6 +1,5 @@
 #' Converts IHS4 numerical scores to character values.
 #'
-#'
 #' @references Zouboulis, C C et al. “Development and validation of the
 #'   International Hidradenitis Suppurativa Severity Score System (IHS4),
 #'   a novel dynamic scoring system to assess HS severity.” The British
@@ -10,12 +9,9 @@
 #' @return A character vector representing the corresponding IHS4 categories.
 #' @export
 #' @examples
-#' IHS4_scores <- c(2, 5, 12)
-#'
-#' IHS4_char(IHS4_scores)
+#' IHS4_char(c(2, 5, 12))
 
 IHS4_char <- function(IHS4_scores) {
-
   # Assertions using checkmate package
   checkmate::assert_integerish(IHS4_scores, lower = 0, null.ok = FALSE)
 
