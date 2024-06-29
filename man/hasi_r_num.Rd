@@ -40,31 +40,19 @@ Calculates the HASI-R score for each patient and visit.
 }
 \examples{
 
-patientID <-
-  c(
-    "000-001", "000-001", "000-001", "000-001",
-    "000-002", "000-002", "000-002", "000-002"
+hasi_r_scores <-
+  hasi_r_num(
+    bsa_percent_within_site = c(0, 0, 0, 0, 5, 1, 4.3, 1.2, 6.8, 7.2),
+    bodysite =
+      c("Right Axilla", "Buttocks including Intergluteal Cleft",
+        "Back", "Left Thigh", "Head & Neck", "Left Axilla",
+        "Chest", "Pubis & Genitals", "Abdomen", "Right Thigh"),
+    inflam_color_chg = c(0, 0, 0, 0, 2, 3, 1, 3, 2, 0),
+    induration = c(0, 0, 0, 0, 2, 3, 1, 3, 2, 0),
+    open_skin_surface = c(0, 0, 0, 0, 2, 3, 1, 3, 2, 0),
+    tunnels = c(0, 0, 0, 0, 2, 3, 1, 3, 2, 0)
   )
-visitDY <- c(1, 1, 2, 2, 1, 1, 2, 2)
-BodySite <-
-  c(
-    "Left Axilla", "Chest", "Left Axilla", "Chest",
-    "Left Axilla", "Chest", "Left Axilla", "Chest"
-  )
-BSA <- c(1, 2, 1, 2, 2, 1, 2, 1)
-InflammColorChg <- c(1, 2, 1, 2, 2, 1, 2, 1)
-Induration <- c(2, 2, 1, 1, 1, 1, 1, 1)
-OpenSkinSurface <- c(1, 1, 2, 3, 2, 3, 2, 3)
-Tunnels <- c(0, 1, 2, 0, 2, 0, 2, 0)
-
-# hasi_r_scores <-
-#   hasi_r_num(
-#     patientID, visitDY, BodySite, BSA,
-#     InflammColorChg, Induration, OpenSkinSurface,
-#     Tunnels
-#   )
-# hasi_r_scores
-
+hasi_r_scores
 }
 \references{
 Goldfarb N, Lowes MA, Butt M, King T, Alavi A, Kirby JS.
