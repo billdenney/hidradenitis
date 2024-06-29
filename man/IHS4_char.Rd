@@ -16,9 +16,7 @@ A character vector representing the corresponding IHS4 categories.
 Converts IHS4 numerical scores to character values.
 }
 \examples{
-IHS4_scores <- c(2, 5, 12)
-
-IHS4_char(IHS4_scores)
+IHS4_char(c(2, 5, 12))
 }
 \references{
 Zouboulis, C C et al. “Development and validation of the
