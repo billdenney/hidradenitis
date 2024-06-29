@@ -42,9 +42,12 @@ hasi_bsa_to_ordinal <- function(bsa_percent_within_site = NULL, bsa_percent_tota
   if (has_bsa_percent_total_body){
     bsa_percent_within_site <- rep(NA_real_, length(required_bodysites))
     for (current_bodysite in names(required_bodysites)){
-      checkmate::assert_numeric(bsa_percent_total_body[bodysite == current_bodysite],
-                                lower = 0, upper = required_bodysites[current_bodysite],
-                                any.missing = TRUE)
+      checkmate::assert_numeric(
+        bsa_percent_total_body[bodysite == current_bodysite],
+        lower = 0, upper = required_bodysites[current_bodysite],
+        any.missing = TRUE,
+        .var.name = current_bodysite
+      )
 
       bsa_percent_within_site[bodysite == current_bodysite] <- 100*bsa_percent_total_body[bodysite == current_bodysite]/required_bodysites[current_bodysite]
     }
