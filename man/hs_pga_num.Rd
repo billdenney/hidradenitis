@@ -21,12 +21,11 @@ Calculates HS-PGA scores based on abscess, draining fistula, and inflammatory no
 }
 \examples{
 
-abscess_fistula <- c(0, 0, 1, 0, 1, 2, 6)
-inflammatory_nodule <- c(0, 0, 0, 3, 5, 8, 12)
-non_inflammatory_nodule <- c(0, 1, 0, 0, 0, 0, 0)
-
-hs_pga_num(abscess_fistula, inflammatory_nodule, non_inflammatory_nodule)
-
+hs_pga_num(
+  abscess_fistula = c(0, 0, 1, 0, 1, 2, 6),
+  inflammatory_nodule = c(0, 0, 0, 3, 5, 8, 12),
+  non_inflammatory_nodule = c(0, 1, 0, 0, 0, 0, 0)
+)
 }
 \references{
 Marzano, A V et al. “Creation of a severity index for
