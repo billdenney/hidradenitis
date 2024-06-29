@@ -30,8 +30,6 @@ Converts BSA percentage to the ordinal scale for HASI-R scoring.
 
 bsa_percent <- c(0, 2, 5, 12, 25, 40, 75)
 hasi_bsa_to_ordinal(bsa_percent)
-
-
 }
 \references{
 Goldfarb N, Lowes MA, Butt M, King T, Alavi A, Kirby JS.
