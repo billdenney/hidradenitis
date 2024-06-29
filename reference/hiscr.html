@@ -101,17 +101,16 @@ JEADV vol. 30,6 (2016): 989-94. doi:10.1111/jdv.13216</p>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">baseline_abscess</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">2</span>, <span class="fl">4</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">baseline_nodule</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">4</span>, <span class="fl">6</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">baseline_fistula</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">timepoint_abscess</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">timepoint_nodule</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">2</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">timepoint_fistula</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">percentage</span> <span class="op">&lt;-</span> <span class="fl">50</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">hiscr_response</span> <span class="op">&lt;-</span> <span class="fu">hiscr</span><span class="op">(</span><span class="va">baseline_abscess</span>, <span class="va">baseline_nodule</span>, <span class="va">baseline_fistula</span>,</span></span>
-<span class="r-in"><span>                                  <span class="va">timepoint_abscess</span>, <span class="va">timepoint_nodule</span>, <span class="va">timepoint_fistula</span>,</span></span>
-<span class="r-in"><span>                                  <span class="va">percentage</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">hiscr</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  baseline_abscess <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">2</span>, <span class="fl">4</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  baseline_nodule <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">4</span>, <span class="fl">6</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  baseline_fistula <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  timepoint_abscess <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  timepoint_nodule <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">2</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  timepoint_fistula <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  percentage <span class="op">=</span> <span class="fl">50</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1]  TRUE FALSE  TRUE</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
