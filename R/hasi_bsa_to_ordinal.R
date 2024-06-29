@@ -12,10 +12,9 @@
 #' @param bodysite Optional character vector representing body sites.
 #' @return An integer vector representing the ordinal scale values.
 #' @export
+#' @family HASI
 #' @examples
-#'
-#' bsa_percent <- c(0, 2, 5, 12, 25, 40, 75)
-#' hasi_bsa_to_ordinal(bsa_percent)
+#' hasi_bsa_to_ordinal(c(0, 2, 5, 12, 25, 40, 75))
 
 hasi_bsa_to_ordinal <- function(bsa_percent_within_site = NULL, bsa_percent_total_body = NULL, bsa_ordinal = NULL, bodysite = NULL) {
   has_bsa_percent_within_site <- !is.null(bsa_percent_within_site)
