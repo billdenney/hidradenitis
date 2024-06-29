@@ -7,7 +7,8 @@
 hs_pga_char(hs_pga_scores)
 }
 \arguments{
-\item{hs_pga_scores}{Integer vector representing the HS-PGA scores (1: Clean, 2: Minimal, 3: Mild, 4: Moderate, 5: Severe, 6: Very Severe).}
+\item{hs_pga_scores}{Integer vector representing the HS-PGA scores (1: Clean,
+2: Minimal, 3: Mild, 4: Moderate, 5: Severe, 6: Very Severe).}
 }
 \value{
 A character vector representing the corresponding HS-PGA categories.
@@ -16,10 +17,7 @@ A character vector representing the corresponding HS-PGA categories.
 Converts HS-PGA numerical scores to character values.
 }
 \examples{
-hs_pga_scores <- c(1, 2, 3, 4, 5, 6)
-
-hs_pga_char(hs_pga_scores)
-
+hs_pga_char(c(1, 2, 3, 4, 5, 6))
 }
 \references{
 Marzano, A V et al. “Creation of a severity index for
