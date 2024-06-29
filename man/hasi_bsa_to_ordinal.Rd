@@ -27,9 +27,7 @@ An integer vector representing the ordinal scale values.
 Converts BSA percentage to the ordinal scale for HASI-R scoring.
 }
 \examples{
-
-bsa_percent <- c(0, 2, 5, 12, 25, 40, 75)
-hasi_bsa_to_ordinal(bsa_percent)
+hasi_bsa_to_ordinal(c(0, 2, 5, 12, 25, 40, 75))
 }
 \references{
 Goldfarb N, Lowes MA, Butt M, King T, Alavi A, Kirby JS.
@@ -38,3 +36,8 @@ psychometric property assessment. Br J Dermatol. 2021 May;184(5):905-912.
 doi: 10.1111/bjd.19565. Epub 2020 Dec 30. PMID: 32969027; PMCID:
 PMC8573730.
 }
+\seealso{
+Other HASI: 
+\code{\link{hasi_r_num}()}
+}
+\concept{HASI}

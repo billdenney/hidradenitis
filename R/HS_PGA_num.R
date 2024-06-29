@@ -10,8 +10,8 @@
 #' @param non_inflammatory_nodule Integer vector representing the non-inflammatory nodule count.
 #' @return An integer vector representing the HS-PGA scores (1: Clean, 2: Minimal, 3: Mild, 4: Moderate, 5: Severe, 6: Very Severe).
 #' @export
+#' @family HS-PGA
 #' @examples
-#'
 #' hs_pga_num(
 #'   abscess_fistula = c(0, 0, 1, 0, 1, 2, 6),
 #'   inflammatory_nodule = c(0, 0, 0, 3, 5, 8, 12),

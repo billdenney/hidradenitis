@@ -9,6 +9,7 @@
 #'   2: Minimal, 3: Mild, 4: Moderate, 5: Severe, 6: Very Severe).
 #' @return A character vector representing the corresponding HS-PGA categories.
 #' @export
+#' @family HS-PGA
 #' @examples
 #' hs_pga_char(c(1, 2, 3, 4, 5, 6))
 hs_pga_char <- function(hs_pga_scores) {

@@ -10,6 +10,7 @@
 #' @param draining_tunnels Integer vector representing the draining tunnel count.
 #' @return An integer vector representing the IHS4 scores (0-3: Mild, 4-10: Moderate, 11- : Severe).
 #' @export
+#' @family IHS4
 #' @examples
 #' IHS4_num(
 #'   nodules = c(5, 3, 2),

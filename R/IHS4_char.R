@@ -8,6 +8,7 @@
 #' @param IHS4_scores An integer vector representing the IHS4 scores (0-3: Mild, 4-10: Moderate, >=11: Severe).
 #' @return A character vector representing the corresponding IHS4 categories.
 #' @export
+#' @family IHS4
 #' @examples
 #' IHS4_char(c(2, 5, 12))
 

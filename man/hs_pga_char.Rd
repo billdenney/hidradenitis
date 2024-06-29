@@ -25,3 +25,8 @@ hidradenitis suppurativa that includes a validated quality-of-life
 measure: the HIDRAscore.” Journal of the European Academy of Dermatology
 and Venereology : JEADV vol. 34,8 (2020): 1815-1821. doi:10.1111/jdv.16328
 }
+\seealso{
+Other HS-PGA: 
+\code{\link{hs_pga_num}()}
+}
+\concept{HS-PGA}

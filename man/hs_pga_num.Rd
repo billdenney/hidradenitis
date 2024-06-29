@@ -20,7 +20,6 @@ An integer vector representing the HS-PGA scores (1: Clean, 2: Minimal, 3: Mild,
 Calculates HS-PGA scores based on abscess, draining fistula, and inflammatory nodule counts.
 }
 \examples{
-
 hs_pga_num(
   abscess_fistula = c(0, 0, 1, 0, 1, 2, 6),
   inflammatory_nodule = c(0, 0, 0, 3, 5, 8, 12),
@@ -33,3 +32,8 @@ hidradenitis suppurativa that includes a validated quality-of-life
 measure: the HIDRAscore.” Journal of the European Academy of Dermatology
 and Venereology : JEADV vol. 34,8 (2020): 1815-1821. doi:10.1111/jdv.16328
 }
+\seealso{
+Other HS-PGA: 
+\code{\link{hs_pga_char}()}
+}
+\concept{HS-PGA}

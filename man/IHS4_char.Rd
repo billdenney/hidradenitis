@@ -24,3 +24,8 @@ International Hidradenitis Suppurativa Severity Score System (IHS4),
 a novel dynamic scoring system to assess HS severity.” The British
 journal of dermatology vol. 177,5 (2017): 1401-1409. doi:10.1111/bjd.15748
 }
+\seealso{
+Other IHS4: 
+\code{\link{IHS4_num}()}
+}
+\concept{IHS4}

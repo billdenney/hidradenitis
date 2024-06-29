@@ -39,20 +39,17 @@ A data frame with patientID, visitDY, and the calculated HASI-R score.
 Calculates the HASI-R score for each patient and visit.
 }
 \examples{
-
-hasi_r_scores <-
-  hasi_r_num(
-    bsa_percent_within_site = c(0, 0, 0, 0, 5, 1, 4.3, 1.2, 6.8, 7.2),
-    bodysite =
-      c("Right Axilla", "Buttocks including Intergluteal Cleft",
-        "Back", "Left Thigh", "Head & Neck", "Left Axilla",
-        "Chest", "Pubis & Genitals", "Abdomen", "Right Thigh"),
-    inflam_color_chg = c(0, 0, 0, 0, 2, 3, 1, 3, 2, 0),
-    induration = c(0, 0, 0, 0, 2, 3, 1, 3, 2, 0),
-    open_skin_surface = c(0, 0, 0, 0, 2, 3, 1, 3, 2, 0),
-    tunnels = c(0, 0, 0, 0, 2, 3, 1, 3, 2, 0)
-  )
-hasi_r_scores
+hasi_r_num(
+  bsa_percent_within_site = c(0, 0, 0, 0, 5, 1, 4.3, 1.2, 6.8, 7.2),
+  bodysite =
+    c("Right Axilla", "Buttocks including Intergluteal Cleft",
+      "Back", "Left Thigh", "Head & Neck", "Left Axilla",
+      "Chest", "Pubis & Genitals", "Abdomen", "Right Thigh"),
+  inflam_color_chg = c(0, 0, 0, 0, 2, 3, 1, 3, 2, 0),
+  induration = c(0, 0, 0, 0, 2, 3, 1, 3, 2, 0),
+  open_skin_surface = c(0, 0, 0, 0, 2, 3, 1, 3, 2, 0),
+  tunnels = c(0, 0, 0, 0, 2, 3, 1, 3, 2, 0)
+)
 }
 \references{
 Goldfarb N, Lowes MA, Butt M, King T, Alavi A, Kirby JS.
@@ -61,3 +58,8 @@ psychometric property assessment. Br J Dermatol. 2021 May;184(5):905-912.
 doi: 10.1111/bjd.19565. Epub 2020 Dec 30. PMID: 32969027; PMCID:
 PMC8573730.
 }
+\seealso{
+Other HASI: 
+\code{\link{hasi_bsa_to_ordinal}()}
+}
+\concept{HASI}
