@@ -20,13 +20,11 @@ An integer vector representing the IHS4 scores (0-3: Mild, 4-10: Moderate, 11- :
 Calculates IHS4 scores based on abscess, draining fistula, and inflammatory nodule counts.
 }
 \examples{
-
-nodules <- c(5, 3, 2)
-abscesses <- c(2, 1, 0)
-draining_tunnels <- c(1, 2, 3)
-
-IHS4_num(nodules, abscesses, draining_tunnels)
-
+IHS4_num(
+  nodules = c(5, 3, 2),
+  abscesses = c(2, 1, 0),
+  draining_tunnels = c(1, 2, 3)
+)
 }
 \references{
 Zouboulis, C C et al. “Development and validation of the
