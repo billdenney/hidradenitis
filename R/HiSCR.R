@@ -1,8 +1,7 @@
 #' Calculates HiSCR scores given a percentage parameter.
 #'
-#'
 #' @references Kimball, A B et al. “HiSCR (Hidradenitis Suppurativa Clinical Response):
-#'   a novel clinical endpoint to evaluate therapeutic outcomes in patients with 
+#'   a novel clinical endpoint to evaluate therapeutic outcomes in patients with
 #'   hidradenitis suppurativa from the placebo-controlled portion of a phase 2 adalimumab study.”
 #'   Journal of the European Academy of Dermatology and Venereology :
 #'   JEADV vol. 30,6 (2016): 989-94. doi:10.1111/jdv.13216
@@ -18,17 +17,15 @@
 #' @export
 #' @examples
 #'
-#' baseline_abscess <- c(3, 2, 4)
-#' baseline_nodule <- c(5, 4, 6)
-#' baseline_fistula <- c(2, 1, 3)
-#' timepoint_abscess <- c(1, 1, 2)
-#' timepoint_nodule <- c(2, 3, 2)
-#' timepoint_fistula <- c(2, 1, 3)
-#' percentage <- 50
-#'
-#' hiscr_response <- hiscr(baseline_abscess, baseline_nodule, baseline_fistula,
-#'                                   timepoint_abscess, timepoint_nodule, timepoint_fistula,
-#'                                   percentage)
+#' hiscr(
+#'   baseline_abscess = c(3, 2, 4),
+#'   baseline_nodule = c(5, 4, 6),
+#'   baseline_fistula = c(2, 1, 3),
+#'   timepoint_abscess = c(1, 1, 2),
+#'   timepoint_nodule = c(2, 3, 2),
+#'   timepoint_fistula = c(2, 1, 3),
+#'   percentage = 50
+#' )
 
 hiscr <- function(baseline_abscess, baseline_nodule, baseline_fistula,
                             timepoint_abscess, timepoint_nodule, timepoint_fistula,
