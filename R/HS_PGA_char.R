@@ -13,15 +13,15 @@
 #' @examples
 #' hs_pga_char(c(1, 2, 3, 4, 5, 6))
 hs_pga_char <- function(hs_pga_scores) {
-
   # Assertions using checkmate package
-  checkmate::assert_integerish(hs_pga_scores, lower = 1, upper = 6, null.ok = FALSE)
+  checkmate::assert_integerish(
+    hs_pga_scores, lower = 1, upper = 6, null.ok = FALSE
+  )
 
   # Define the HS-PGA categories
-  hs_pga_categories <- c("Clean", "Minimal", "Mild", "Moderate", "Severe", "Very Severe")
+  hs_pga_categories <-
+    c("Clean", "Minimal", "Mild", "Moderate", "Severe", "Very Severe")
 
   # Convert HS-PGA scores to character values, keep the original names
-  hs_pga_char <- stats::setNames(hs_pga_categories[hs_pga_scores], names(hs_pga_scores))
-
-  hs_pga_char
+  stats::setNames(hs_pga_categories[hs_pga_scores], names(hs_pga_scores))
 }

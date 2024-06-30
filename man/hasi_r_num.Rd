@@ -24,16 +24,19 @@ hasi_r_num(
 
 \item{bodysite}{Optional character vector representing body sites.}
 
-\item{inflam_color_chg}{Integer vector representing inflammatory color change scores (0-3).}
+\item{inflam_color_chg}{Integer vector representing inflammatory color change
+scores (0-3).}
 
 \item{induration}{Integer vector representing induration scores (0-3).}
 
-\item{open_skin_surface}{Integer vector representing open skin surface scores (0-3).}
+\item{open_skin_surface}{Integer vector representing open skin surface scores
+(0-3).}
 
 \item{tunnels}{Integer vector representing tunnels scores (0-3).}
 }
 \value{
-A data frame with patientID, visitDY, and the calculated HASI-R score.
+A data frame with patientID, visitDY, and the calculated HASI-R
+score.
 }
 \description{
 Calculates the HASI-R score for each patient and visit.

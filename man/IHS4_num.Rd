@@ -2,7 +2,8 @@
 % Please edit documentation in R/IHS4_num.R
 \name{IHS4_num}
 \alias{IHS4_num}
-\title{Calculates IHS4 scores based on abscess, draining fistula, and inflammatory nodule counts.}
+\title{Calculates IHS4 scores based on abscess, draining fistula, and inflammatory
+nodule counts.}
 \usage{
 IHS4_num(nodules, abscesses, draining_tunnels)
 }
@@ -14,10 +15,12 @@ IHS4_num(nodules, abscesses, draining_tunnels)
 \item{draining_tunnels}{Integer vector representing the draining tunnel count.}
 }
 \value{
-An integer vector representing the IHS4 scores (0-3: Mild, 4-10: Moderate, 11- : Severe).
+An integer vector representing the IHS4 scores (0-3: Mild,
+4-10: Moderate, 11- : Severe).
 }
 \description{
-Calculates IHS4 scores based on abscess, draining fistula, and inflammatory nodule counts.
+Calculates IHS4 scores based on abscess, draining fistula, and inflammatory
+nodule counts.
 }
 \examples{
 IHS4_num(

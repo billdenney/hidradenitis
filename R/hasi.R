@@ -7,11 +7,14 @@
 #'   PMC8573730.
 #'
 #' @inheritParams hasi_bsa_to_ordinal
-#' @param inflam_color_chg Integer vector representing inflammatory color change scores (0-3).
+#' @param inflam_color_chg Integer vector representing inflammatory color change
+#'   scores (0-3).
 #' @param induration Integer vector representing induration scores (0-3).
-#' @param open_skin_surface Integer vector representing open skin surface scores (0-3).
+#' @param open_skin_surface Integer vector representing open skin surface scores
+#'   (0-3).
 #' @param tunnels Integer vector representing tunnels scores (0-3).
-#' @return A data frame with patientID, visitDY, and the calculated HASI-R score.
+#' @return A data frame with patientID, visitDY, and the calculated HASI-R
+#'   score.
 #' @export
 #' @family HASI
 #' @examples
@@ -27,9 +30,14 @@
 #'   tunnels = c(0, 0, 0, 0, 2, 3, 1, 3, 2, 0)
 #' )
 
-hasi_r_num <- function(bsa_percent_within_site = NULL, bsa_percent_total_body = NULL,
-                       bsa_ordinal = NULL, bodysite = NULL, inflam_color_chg,
-                       induration, open_skin_surface, tunnels) {
+hasi_r_num <- function(bsa_percent_within_site = NULL,
+                       bsa_percent_total_body = NULL,
+                       bsa_ordinal = NULL,
+                       bodysite = NULL,
+                       inflam_color_chg,
+                       induration,
+                       open_skin_surface,
+                       tunnels) {
 
   has_bsa_percent_within_site <- !is.null(bsa_percent_within_site)
   has_bsa_percent_total_body <- !is.null(bsa_percent_total_body)
@@ -43,11 +51,20 @@ hasi_r_num <- function(bsa_percent_within_site = NULL, bsa_percent_total_body = 
       bodysite = bodysite
     )
 
-  # The trick to these is that the current data will need a separation of numeric and character indicators.
-  checkmate::assert_integerish(inflam_color_chg, lower = 0, upper = 3, any.missing = TRUE, null.ok = FALSE)
-  checkmate::assert_integerish(induration, lower = 0, upper = 3, any.missing = TRUE, null.ok = FALSE)
-  checkmate::assert_integerish(open_skin_surface, lower = 0, upper = 3, any.missing = TRUE, null.ok = FALSE)
-  checkmate::assert_integerish(tunnels, lower = 0, upper = 3, any.missing = TRUE, null.ok = FALSE)
+  # The trick to these is that the current data will need a separation of
+  # numeric and character indicators.
+  checkmate::assert_integerish(
+    inflam_color_chg, lower = 0, upper = 3, any.missing = TRUE, null.ok = FALSE
+  )
+  checkmate::assert_integerish(
+    induration, lower = 0, upper = 3, any.missing = TRUE, null.ok = FALSE
+  )
+  checkmate::assert_integerish(
+    open_skin_surface, lower = 0, upper = 3, any.missing = TRUE, null.ok = FALSE
+  )
+  checkmate::assert_integerish(
+    tunnels, lower = 0, upper = 3, any.missing = TRUE, null.ok = FALSE
+  )
 
   # Calculate the sum of scores for each component for each body site
   severity_index <- inflam_color_chg + induration + open_skin_surface + tunnels

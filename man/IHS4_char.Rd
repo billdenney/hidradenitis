@@ -7,10 +7,11 @@
 IHS4_char(IHS4_scores)
 }
 \arguments{
-\item{IHS4_scores}{An integer vector representing the IHS4 scores (0-3: Mild, 4-10: Moderate, >=11: Severe).}
+\item{IHS4_scores}{An integer vector representing the IHS4 scores (0-3: Mild,
+4-10: Moderate, >=11: Severe).}
 }
 \value{
-A character vector representing the corresponding IHS4 categories.
+A character vector representing the corresponding IHS4 categories
 }
 \description{
 Converts IHS4 numerical scores to character values.
