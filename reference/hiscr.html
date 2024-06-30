@@ -56,52 +56,60 @@
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>baseline_abscess</dt>
-<dd><p>Integer vector representing the abscess count at baseline.</p></dd>
+<dd><p>Integer vector representing the abscess count at
+baseline.</p></dd>
 
 
 <dt>baseline_nodule</dt>
-<dd><p>Integer vector representing the inflammatory nodule count at baseline.</p></dd>
+<dd><p>Integer vector representing the inflammatory nodule
+count at baseline.</p></dd>
 
 
 <dt>baseline_fistula</dt>
-<dd><p>Integer vector representing the draining fistula count at baseline.</p></dd>
+<dd><p>Integer vector representing the draining fistula
+count at baseline.</p></dd>
 
 
 <dt>timepoint_abscess</dt>
-<dd><p>Integer vector representing the abscess count at the time point of interest.</p></dd>
+<dd><p>Integer vector representing the abscess count at the
+time point of interest.</p></dd>
 
 
 <dt>timepoint_nodule</dt>
-<dd><p>Integer vector representing the inflammatory nodule count at the time point of interest.</p></dd>
+<dd><p>Integer vector representing the inflammatory nodule
+count at the time point of interest.</p></dd>
 
 
 <dt>timepoint_fistula</dt>
-<dd><p>Integer vector representing the draining fistula count at the time point of interest.</p></dd>
+<dd><p>Integer vector representing the draining fistula
+count at the time point of interest.</p></dd>
 
 
 <dt>percentage</dt>
-<dd><p>Numeric value specifying the percentage required for HiSCR (e.g., 50 for HiSCR50, 75 for HiSCR75, etc.).</p></dd>
+<dd><p>Numeric value specifying the percentage required for HiSCR
+(e.g., 50 for HiSCR50, 75 for HiSCR75, etc.).</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>A logical vector indicating whether the HiSCR response is achieved for each set of input parameters.</p>
+<p>A logical vector indicating whether the HiSCR response is achieved
+for each set of input parameters.</p>
     </div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
-    <p>Kimball, A B et al. “HiSCR (Hidradenitis Suppurativa Clinical Response):
-a novel clinical endpoint to evaluate therapeutic outcomes in patients with
-hidradenitis suppurativa from the placebo-controlled portion of a phase 2 adalimumab study.”
-Journal of the European Academy of Dermatology and Venereology :
-JEADV vol. 30,6 (2016): 989-94. doi:10.1111/jdv.13216</p>
+    <p>Kimball, A B et al. “HiSCR (Hidradenitis Suppurativa Clinical
+Response): a novel clinical endpoint to evaluate therapeutic outcomes in
+patients with hidradenitis suppurativa from the placebo-controlled portion
+of a phase 2 adalimumab study.” Journal of the European Academy of
+Dermatology and Venereology : JEADV vol. 30,6 (2016): 989-94.
+doi:10.1111/jdv.13216</p>
     </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">hiscr</span><span class="op">(</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">hiscr</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  baseline_abscess <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">2</span>, <span class="fl">4</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  baseline_nodule <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">4</span>, <span class="fl">6</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  baseline_fistula <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span>,</span></span>
