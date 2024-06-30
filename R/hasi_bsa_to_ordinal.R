@@ -6,11 +6,13 @@
 #'   doi: 10.1111/bjd.19565. Epub 2020 Dec 30. PMID: 32969027; PMCID:
 #'   PMC8573730.
 #'
-#' @param bsa_percent_within_site Numeric vector representing BSA percentages. (0-100)
-#' @param bsa_percent_total_body Numeric vector representing BSA percentages. (0-15, depending on site)
+#' @param bsa_percent_within_site Numeric vector representing BSA percentages
+#'   (0-100)
+#' @param bsa_percent_total_body Numeric vector representing BSA percentages
+#'   (0-15, depending on site)
 #' @param bsa_ordinal Numeric vector representing BSA values. (0-6)
-#' @param bodysite Optional character vector representing body sites.
-#' @return An integer vector representing the ordinal scale values.
+#' @param bodysite Optional character vector representing body sites
+#' @return Integer vector representing the ordinal scale values
 #' @export
 #' @family HASI
 #' @examples
@@ -25,7 +27,9 @@ hasi_bsa_to_ordinal <- function(bsa_percent_within_site = NULL,
   has_bsa_ordinal <- !is.null(bsa_ordinal)
   has_bodysite <- !is.null(bodysite)
 
-  if ((has_bsa_percent_total_body + has_bsa_percent_within_site + has_bsa_ordinal) != 1) {
+  n_bsa_types <-
+    has_bsa_percent_total_body + has_bsa_percent_within_site + has_bsa_ordinal
+  if (n_bsa_types != 1) {
     stop("Multiple types of BSA values found")
   }
 
@@ -76,6 +80,8 @@ hasi_bsa_to_ordinal <- function(bsa_percent_within_site = NULL,
 
     bsa_ordinal <- as.integer(as.character(bsa_ordinal_ret))
   }
-  checkmate::assert_integerish(bsa_ordinal, lower = 0, upper = 6, any.missing = TRUE)
+  checkmate::assert_integerish(
+    bsa_ordinal, lower = 0, upper = 6, any.missing = TRUE
+  )
   bsa_ordinal
 }

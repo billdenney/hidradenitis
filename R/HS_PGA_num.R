@@ -52,8 +52,8 @@ hs_pga_num <- function(abscess_fistula,
     non_inflammatory_nodule > 0
   is_3 <-
     (abscess_fistula == 0 &
-       inflammatory_nodule >= 1 &
-       inflammatory_nodule <= 4) |
+     inflammatory_nodule >= 1 &
+     inflammatory_nodule <= 4) |
     (abscess_fistula == 1 & inflammatory_nodule == 0)
   is_4 <-
     (abscess_fistula == 0 & inflammatory_nodule >= 5) |

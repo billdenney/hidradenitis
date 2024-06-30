@@ -38,11 +38,6 @@ hasi_r_num <- function(bsa_percent_within_site = NULL,
                        induration,
                        open_skin_surface,
                        tunnels) {
-
-  has_bsa_percent_within_site <- !is.null(bsa_percent_within_site)
-  has_bsa_percent_total_body <- !is.null(bsa_percent_total_body)
-  has_bsa_ordinal <- !is.null(bsa_ordinal)
-
   bsa_ordinal <-
     hasi_bsa_to_ordinal(
       bsa_percent_within_site = bsa_percent_within_site,

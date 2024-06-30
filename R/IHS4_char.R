@@ -5,15 +5,15 @@
 #'   a novel dynamic scoring system to assess HS severity.” The British
 #'   journal of dermatology vol. 177,5 (2017): 1401-1409. doi:10.1111/bjd.15748
 #'
-#' @param IHS4_scores An integer vector representing the IHS4 scores (0-3: Mild,
+#' @param IHS4_scores Integer vector representing the IHS4 scores (0-3: Mild,
 #'   4-10: Moderate, >=11: Severe).
 #' @return A character vector representing the corresponding IHS4 categories
 #' @export
 #' @family IHS4
 #' @examples
-#' IHS4_char(c(2, 5, 12))
+#' ihs4_char(c(2, 5, 12))
 
-IHS4_char <- function(IHS4_scores) {
+ihs4_char <- function(IHS4_scores) {
   # Assertions using checkmate package
   checkmate::assert_integerish(IHS4_scores, lower = 0, null.ok = FALSE)
 
@@ -26,8 +26,5 @@ IHS4_char <- function(IHS4_scores) {
       right = TRUE
     )
 
-  # Convert IHS4 scores to character values
-  IHS4_char_ret <- as.character(IHS4_categories)
-
-  IHS4_char_ret
+  as.character(IHS4_categories)
 }

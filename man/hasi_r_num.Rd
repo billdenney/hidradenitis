@@ -16,13 +16,15 @@ hasi_r_num(
 )
 }
 \arguments{
-\item{bsa_percent_within_site}{Numeric vector representing BSA percentages. (0-100)}
+\item{bsa_percent_within_site}{Numeric vector representing BSA percentages
+(0-100)}
 
-\item{bsa_percent_total_body}{Numeric vector representing BSA percentages. (0-15, depending on site)}
+\item{bsa_percent_total_body}{Numeric vector representing BSA percentages
+(0-15, depending on site)}
 
 \item{bsa_ordinal}{Numeric vector representing BSA values. (0-6)}
 
-\item{bodysite}{Optional character vector representing body sites.}
+\item{bodysite}{Optional character vector representing body sites}
 
 \item{inflam_color_chg}{Integer vector representing inflammatory color change
 scores (0-3).}

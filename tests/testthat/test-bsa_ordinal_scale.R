@@ -44,27 +44,47 @@ test_that("Test for values on the boundary of multiple ranges", {
 })
 
 test_that("Test for vector input", {
-  expect_equal(hasi_bsa_to_ordinal(c(0, 2, 5, 12, 25, 40, 75)), c(0, 1, 2, 3, 4, 5, 6))
+  expect_equal(
+    hasi_bsa_to_ordinal(c(0, 2, 5, 12, 25, 40, 75)),
+    c(0, 1, 2, 3, 4, 5, 6)
+  )
 })
 
-
 test_that("Test for invalid input (negative values)", {
-  expect_error(hasi_bsa_to_ordinal(-1))
-  expect_error(hasi_bsa_to_ordinal(c(-1, 10)))
+  expect_error(
+    hasi_bsa_to_ordinal(-1),
+    regexp = "Element 1 is not >= 0"
+  )
+  expect_error(
+    hasi_bsa_to_ordinal(c(-1, 10)),
+    regexp = "Element 1 is not >= 0"
+  )
 })
 
 test_that("Test for invalid input (values over 100)", {
-  expect_error(hasi_bsa_to_ordinal(101))
-  expect_error(hasi_bsa_to_ordinal(c(50, 101)))
+  expect_error(
+    hasi_bsa_to_ordinal(bsa_percent_within_site = 101),
+    regexp = "Element 1 is not <= 100"
+  )
+  expect_error(
+    hasi_bsa_to_ordinal(bsa_percent_within_site = c(50, 101)),
+    regexp = "Element 2 is not <= 100"
+  )
 })
 
 test_that("Test for non-numeric input", {
-  expect_error(hasi_bsa_to_ordinal("string"))
-  expect_error(hasi_bsa_to_ordinal(c("string", 10)))
+  expect_error(
+    hasi_bsa_to_ordinal("string"),
+    regexp = "Must be of type 'numeric', not 'character'"
+  )
+  expect_error(
+    hasi_bsa_to_ordinal(c("string", 10)),
+    regexp = "Must be of type 'numeric', not 'character'"
+  )
 })
 
 test_that("Test for NA values", {
-  expect_error(hasi_bsa_to_ordinal(NA))
+  expect_error(hasi_bsa_to_ordinal(NA), regexp = "'x' must be numeric")
 })
 
 test_that("Test for empty vector", {
