@@ -14,11 +14,11 @@ test_that("ihs4_char function works correctly", {
 })
 
 test_that("ihs4_char handles edge cases", {
-  expect_equal(ihs4_char(c(0)), "Mild")
-  expect_equal(ihs4_char(c(3)), "Mild")
-  expect_equal(ihs4_char(c(4)), "Moderate")
-  expect_equal(ihs4_char(c(10)), "Moderate")
-  expect_equal(ihs4_char(c(11)), "Severe")
+  expect_equal(ihs4_char(0), "Mild")
+  expect_equal(ihs4_char(3), "Mild")
+  expect_equal(ihs4_char(4), "Moderate")
+  expect_equal(ihs4_char(10), "Moderate")
+  expect_equal(ihs4_char(11), "Severe")
   expect_equal(ihs4_char(NA_real_), NA_character_)
 })
 
@@ -33,7 +33,7 @@ test_that("ihs4_char handles large vectors", {
 })
 
 test_that("ihs4_char throws error for invalid input", {
-  expect_error(ihs4_char(c(-1)), "Element 1 is not >= 0")
+  expect_error(ihs4_char(-1), "Element 1 is not >= 0")
   expect_error(
     ihs4_char("string"),
     regexp = "Must be of type 'integerish', not 'character'"

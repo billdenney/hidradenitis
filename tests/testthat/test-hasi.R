@@ -1,10 +1,10 @@
 test_that("Error with lack of all bodysites", {
-  bodysite <- c("Right Axilla")
-  bsa <- c(1)
-  inflamm_color_chg <- c(1)
-  induration <- c(1)
-  open_skin_surface <- c(1)
-  tunnels <- c(1)
+  bodysite <- "Right Axilla"
+  bsa <- 1
+  inflamm_color_chg <- 1
+  induration <- 1
+  open_skin_surface <- 1
+  tunnels <- 1
 
   expect_error(hasi_r_num(bsa_percent_within_site = bsa,
                           bsa_percent_total_body = NULL,
@@ -17,12 +17,12 @@ test_that("Error with lack of all bodysites", {
 })
 
 test_that("Error with Incorrect bodysite", {
-  bodysite <- c("Axillae")
-  bsa <- c(1)
-  inflamm_color_chg <- c(1)
-  induration <- c(1)
-  open_skin_surface <- c(1)
-  tunnels <- c(1)
+  bodysite <- "Axillae"
+  bsa <- 1
+  inflamm_color_chg <- 1
+  induration <- 1
+  open_skin_surface <- 1
+  tunnels <- 1
 
   expect_error(hasi_r_num(bsa_percent_within_site = bsa,
                           bsa_percent_total_body = NULL,
