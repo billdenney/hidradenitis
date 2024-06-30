@@ -62,8 +62,7 @@ test_that("hasi_r_num works with full example", {
   )
 })
 
-# Test with missing bodysite: "Right Axilla"
-test_that("hasi_r_num gives error with missing Right Axilla", {
+test_that("hasi_r_num gives error with missing body site", {
   bodysite <-
     c(
       "Buttocks including Intergluteal Cleft", "Back", "Left Thigh",
@@ -75,14 +74,19 @@ test_that("hasi_r_num gives error with missing Right Axilla", {
   induration <- rep(1, 9)
   open_skin_surface <- rep(3, 9)
   tunnels <- rep(0, 9)
-  expect_error(hasi_r_num(bsa_percent_within_site = bsa,
-                          bsa_percent_total_body = NULL,
-                          bsa_ordinal = NULL,
-                          bodysite = bodysite,
-                          inflam_color_chg = inflamm_color_chg,
-                          induration = induration,
-                          open_skin_surface = open_skin_surface,
-                          tunnels = tunnels))
+  for (idx in seq_along(bodysite)) {
+    expect_error(
+      hasi_r_num(
+        bsa_percent_within_site = bsa[-idx],
+        bodysite = bodysite[-idx],
+        inflam_color_chg = inflamm_color_chg[-idx],
+        induration = induration[-idx],
+        open_skin_surface = open_skin_surface[-idx],
+        tunnels = tunnels[-idx]
+      ),
+      regexp = "Assertion on 'bodysite' failed: Must be permutation of"
+    )
+  }
 })
 
 # Test with incorrect data type for BSA
@@ -98,29 +102,6 @@ test_that("hasi_r_num gives error with incorrect data type for BSA", {
   induration <- rep(1, 10)
   open_skin_surface <- rep(3, 10)
   tunnels <- rep(0, 10)
-  expect_error(hasi_r_num(bsa_percent_within_site = bsa,
-                          bsa_percent_total_body = NULL,
-                          bsa_ordinal = NULL,
-                          bodysite = bodysite,
-                          inflam_color_chg = inflamm_color_chg,
-                          induration = induration,
-                          open_skin_surface = open_skin_surface,
-                          tunnels = tunnels))
-})
-
-# Test with missing bodysite: "Head & Neck"
-test_that("hasi_r_num gives error with missing Head & Neck", {
-  bodysite <-
-    c(
-      "Right Axilla", "Buttocks including Intergluteal Cleft", "Back",
-      "Left Thigh", "Left Axilla", "Chest", "Pubis & Genitals", "Abdomen",
-      "Right Thigh"
-    )
-  bsa <- c(1.5, 8.5, 14, 8, 1.5, 8, 1.5, 8, 8)
-  inflamm_color_chg <- rep(2, 9)
-  induration <- rep(1, 9)
-  open_skin_surface <- rep(3, 9)
-  tunnels <- rep(0, 9)
   expect_error(hasi_r_num(bsa_percent_within_site = bsa,
                           bsa_percent_total_body = NULL,
                           bsa_ordinal = NULL,
