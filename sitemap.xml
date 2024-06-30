@@ -13,12 +13,6 @@
     <loc>https://billdenney.github.io/hidradenitis/index.html</loc>
   </url>
   <url>
-    <loc>https://billdenney.github.io/hidradenitis/reference/IHS4_char.html</loc>
-  </url>
-  <url>
-    <loc>https://billdenney.github.io/hidradenitis/reference/IHS4_num.html</loc>
-  </url>
-  <url>
     <loc>https://billdenney.github.io/hidradenitis/reference/hasi_bsa_to_ordinal.html</loc>
   </url>
   <url>
@@ -32,6 +26,12 @@
   </url>
   <url>
     <loc>https://billdenney.github.io/hidradenitis/reference/hs_pga_num.html</loc>
+  </url>
+  <url>
+    <loc>https://billdenney.github.io/hidradenitis/reference/ihs4_char.html</loc>
+  </url>
+  <url>
+    <loc>https://billdenney.github.io/hidradenitis/reference/ihs4_num.html</loc>
   </url>
   <url>
     <loc>https://billdenney.github.io/hidradenitis/reference/index.html</loc>
