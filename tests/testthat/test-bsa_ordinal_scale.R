@@ -85,6 +85,8 @@ test_that("Test for non-numeric input", {
 
 test_that("Test for NA values", {
   expect_error(hasi_bsa_to_ordinal(NA), regexp = "'x' must be numeric")
+  expect_equal(hasi_bsa_to_ordinal(NA_real_), NA_real_)
+  expect_equal(hasi_bsa_to_ordinal(NA_integer_), NA_real_)
 })
 
 test_that("Test for empty vector", {
