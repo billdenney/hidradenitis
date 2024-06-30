@@ -53,7 +53,7 @@ test_that("hasi_r_num works with full example", {
   induration <- rep(1, 10)
   open_skin_surface <- rep(3, 10)
   tunnels <- rep(0, 10)
-  expect_equal(
+  expect_identical(
     hasi_r_num(
       bsa_percent_within_site = bsa,
       bsa_percent_total_body = NULL,
@@ -64,7 +64,7 @@ test_that("hasi_r_num works with full example", {
       open_skin_surface = open_skin_surface,
       tunnels = tunnels
     ),
-    228
+    228L
   )
 })
 

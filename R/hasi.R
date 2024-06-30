@@ -61,7 +61,11 @@ hasi_r_num <- function(bsa_percent_within_site = NULL,
   )
 
   # Calculate the sum of scores for each component for each body site
-  severity_index <- inflam_color_chg + induration + open_skin_surface + tunnels
+  severity_index <-
+    as.integer(inflam_color_chg) +
+    as.integer(induration) +
+    as.integer(open_skin_surface) +
+    as.integer(tunnels)
 
   # Multiply severity index by BSA - Main Calculation
   site_score <- severity_index * bsa_ordinal

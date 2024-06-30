@@ -31,5 +31,7 @@ ihs4_num <- function(nodules, abscesses, draining_tunnels) {
   )
 
   # Calculate IHS4 scores based on the criteria
-  (nodules * 1) + (abscesses * 2) + (draining_tunnels * 4)
+  as.integer(nodules) +
+    as.integer(abscesses) * 2L +
+    as.integer(draining_tunnels) * 4L
 }
