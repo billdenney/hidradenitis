@@ -64,7 +64,7 @@ hasi_bsa_to_ordinal <- function(bsa_percent_within_site = NULL,
       )
 
       bsa_percent_within_site[bodysite == current_bodysite] <-
-        100*bsa_percent_total_body[bodysite == current_bodysite]/
+        100 * bsa_percent_total_body[bodysite == current_bodysite] /
         required_bodysites[current_bodysite]
     }
   }
@@ -73,10 +73,13 @@ hasi_bsa_to_ordinal <- function(bsa_percent_within_site = NULL,
     checkmate::assert_numeric(
       bsa_percent_within_site, lower = 0, upper = 100, any.missing = TRUE
     )
-    bsa_ordinal_ret <- cut(bsa_percent_within_site,
-                       breaks = c(-Inf, 0, 3, 9, 20, 29, 50, Inf),
-                       labels = c(0, 1, 2, 3, 4, 5, 6),
-                       right = TRUE)
+    bsa_ordinal_ret <-
+      cut(
+        bsa_percent_within_site,
+        breaks = c(-Inf, 0, 3, 9, 20, 29, 50, Inf),
+        labels = c(0, 1, 2, 3, 4, 5, 6),
+        right = TRUE
+      )
 
     bsa_ordinal <- as.integer(as.character(bsa_ordinal_ret))
   }

@@ -4,10 +4,10 @@
 \alias{ihs4_char}
 \title{Converts IHS4 numerical scores to character values.}
 \usage{
-ihs4_char(IHS4_scores)
+ihs4_char(ihs4_scores)
 }
 \arguments{
-\item{IHS4_scores}{Integer vector representing the IHS4 scores (0-3: Mild,
+\item{ihs4_scores}{Integer vector representing the IHS4 scores (0-3: Mild,
 4-10: Moderate, >=11: Severe).}
 }
 \value{

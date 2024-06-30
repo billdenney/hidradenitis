@@ -47,7 +47,10 @@ test_that("ihs4_num throws error for invalid input lengths", {
   abscesses <- c(1, 2, 3)
   draining_tunnels <- c(1, 2, 3)
 
-  expect_error(ihs4_num(nodules, abscesses, draining_tunnels), "Must have length 2, but has length 3")
+  expect_error(
+    ihs4_num(nodules, abscesses, draining_tunnels),
+    regexp = "Must have length 2, but has length 3"
+  )
 })
 
 test_that("ihs4_num throws error for negative values", {
@@ -55,7 +58,10 @@ test_that("ihs4_num throws error for negative values", {
   abscesses <- c(1, 2, 3)
   draining_tunnels <- c(1, 2, 3)
 
-  expect_error(ihs4_num(nodules, abscesses, draining_tunnels), "Element 1 is not >= 0")
+  expect_error(
+    ihs4_num(nodules, abscesses, draining_tunnels),
+    regexp = "Element 1 is not >= 0"
+  )
 })
 
 test_that("ihs4_num throws error for NA values", {
