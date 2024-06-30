@@ -50,7 +50,8 @@ test_that("Test for vector input", {
   )
 })
 
-test_that("Test for invalid input (negative values)", {
+test_that("Test for invalid input", {
+  # negative values
   expect_error(
     hasi_bsa_to_ordinal(-1),
     regexp = "Element 1 is not >= 0"
@@ -59,9 +60,8 @@ test_that("Test for invalid input (negative values)", {
     hasi_bsa_to_ordinal(c(-1, 10)),
     regexp = "Element 1 is not >= 0"
   )
-})
 
-test_that("Test for invalid input (values over 100)", {
+  # values over 100
   expect_error(
     hasi_bsa_to_ordinal(bsa_percent_within_site = 101),
     regexp = "Element 1 is not <= 100"
@@ -70,9 +70,7 @@ test_that("Test for invalid input (values over 100)", {
     hasi_bsa_to_ordinal(bsa_percent_within_site = c(50, 101)),
     regexp = "Element 2 is not <= 100"
   )
-})
-
-test_that("Test for non-numeric input", {
+  # non-numeric input
   expect_error(
     hasi_bsa_to_ordinal("string"),
     regexp = "Must be of type 'numeric', not 'character'"
@@ -80,6 +78,16 @@ test_that("Test for non-numeric input", {
   expect_error(
     hasi_bsa_to_ordinal(c("string", 10)),
     regexp = "Must be of type 'numeric', not 'character'"
+  )
+
+  # Multiple BSA types
+  expect_error(
+    hasi_bsa_to_ordinal(
+      bsa_ordinal = 1,
+      bsa_percent_within_site = 1,
+      bodysite = "Right Axilla"
+    ),
+    regexp = "Multiple types of BSA values found"
   )
 })
 
