@@ -35,9 +35,13 @@ hasi_r_num <- function(bsa_percent_within_site = NULL, bsa_percent_total_body = 
   has_bsa_percent_total_body <- !is.null(bsa_percent_total_body)
   has_bsa_ordinal <- !is.null(bsa_ordinal)
 
-  if (has_bsa_percent_within_site){
-    bsa_ordinal <- hasi_bsa_to_ordinal(bsa_percent_within_site, bodysite = bodysite)
-  }
+  bsa_ordinal <-
+    hasi_bsa_to_ordinal(
+      bsa_percent_within_site = bsa_percent_within_site,
+      bsa_percent_total_body = bsa_percent_total_body,
+      bsa_ordinal = bsa_ordinal,
+      bodysite = bodysite
+    )
 
   # The trick to these is that the current data will need a separation of numeric and character indicators.
   checkmate::assert_integerish(inflam_color_chg, lower = 0, upper = 3, any.missing = TRUE, null.ok = FALSE)

@@ -5,7 +5,7 @@ test_that("Error with lack of all BodySites", {
   Induration <- c(1)
   OpenSkinSurface <- c(1)
   Tunnels <- c(1)
-  
+
   expect_error(hasi_r_num(bsa_percent_within_site = BSA,
                           bsa_percent_total_body = NULL,
                           bsa_ordinal = NULL,
@@ -23,7 +23,7 @@ test_that("Error with Incorrect BodySite", {
   Induration <- c(1)
   OpenSkinSurface <- c(1)
   Tunnels <- c(1)
-  
+
   expect_error(hasi_r_num(bsa_percent_within_site = BSA,
                           bsa_percent_total_body = NULL,
                           bsa_ordinal = NULL,
@@ -132,7 +132,34 @@ test_that("hasi_r_num gives error with incorrect data type for InflammColorChg",
   expect_error(hasi_r_num(patientID, visitDY, BodySite, BSA, InflammColorChg, Induration, OpenSkinSurface, Tunnels))
 })
 
+test_that("hasi_r_num() verifies all inputs (#32)", {
+  expect_error(
+    hasi_r_num(
+      bsa_ordinal = c(0, 0, 0, 0, 5, 1, 4.3, 1.2, 6.8, 7.2),
+      bodysite =
+        c("Right Axilla", "Buttocks including Intergluteal Cleft",
+          "Back", "Left Thigh", "Head & Neck", "Left Axilla",
+          "Chest", "Pubis & Genitals", "Abdomen", "Right Thigh"),
+      inflam_color_chg = c(0, 0, 0, 0, 2, 3, 1, 3, 2, 0),
+      induration = c(0, 0, 0, 0, 2, 3, 1, 3, 2, 0),
+      open_skin_surface = c(0, 0, 0, 0, 2, 3, 1, 3, 2, 0),
+      tunnels = c(0, 0, 0, 0, 2, 3, 1, 3, 2, 0)
+    ),
+    regexp = "Must be of type 'integerish'"
+  )
 
-
-
-
+  expect_error(
+    hasi_r_num(
+      bsa_percent_total_body = c(0, 0, 0, 0, 5, 1, 4.3, 1.2, 6.8, 105),
+      bodysite =
+        c("Right Axilla", "Buttocks including Intergluteal Cleft",
+          "Back", "Left Thigh", "Head & Neck", "Left Axilla",
+          "Chest", "Pubis & Genitals", "Abdomen", "Right Thigh"),
+      inflam_color_chg = c(0, 0, 0, 0, 2, 3, 1, 3, 2, 0),
+      induration = c(0, 0, 0, 0, 2, 3, 1, 3, 2, 0),
+      open_skin_surface = c(0, 0, 0, 0, 2, 3, 1, 3, 2, 0),
+      tunnels = c(0, 0, 0, 0, 2, 3, 1, 3, 2, 0)
+    ),
+    regexp = "Element 1 is not <= 9"
+  )
+})
