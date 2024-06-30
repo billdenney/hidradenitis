@@ -6,14 +6,17 @@ test_that("Error with lack of all bodysites", {
   open_skin_surface <- 1
   tunnels <- 1
 
-  expect_error(hasi_r_num(bsa_percent_within_site = bsa,
-                          bsa_percent_total_body = NULL,
-                          bsa_ordinal = NULL,
-                          bodysite = bodysite,
-                          inflam_color_chg = inflamm_color_chg,
-                          induration = induration,
-                          open_skin_surface = open_skin_surface,
-                          tunnels = tunnels))
+  expect_error(
+    hasi_r_num(
+      bsa_percent_within_site = bsa,
+      bodysite = bodysite,
+      inflam_color_chg = inflamm_color_chg,
+      induration = induration,
+      open_skin_surface = open_skin_surface,
+      tunnels = tunnels
+    ),
+    regexp = "Assertion on 'bodysite' failed: Must be permutation of"
+  )
 })
 
 test_that("Error with Incorrect bodysite", {
@@ -24,14 +27,17 @@ test_that("Error with Incorrect bodysite", {
   open_skin_surface <- 1
   tunnels <- 1
 
-  expect_error(hasi_r_num(bsa_percent_within_site = bsa,
-                          bsa_percent_total_body = NULL,
-                          bsa_ordinal = NULL,
-                          bodysite = bodysite,
-                          inflam_color_chg = inflamm_color_chg,
-                          induration = induration,
-                          open_skin_surface = open_skin_surface,
-                          tunnels = tunnels))
+  expect_error(
+    hasi_r_num(
+      bsa_percent_within_site = bsa,
+      bodysite = bodysite,
+      inflam_color_chg = inflamm_color_chg,
+      induration = induration,
+      open_skin_surface = open_skin_surface,
+      tunnels = tunnels
+    ),
+    regexp = "'bodysite' failed: Must be permutation of.*but is \\['Axillae'\\]"
+  )
 })
 
 # Test with a full example containing all bodysites
@@ -102,14 +108,17 @@ test_that("hasi_r_num gives error with incorrect data type for BSA", {
   induration <- rep(1, 10)
   open_skin_surface <- rep(3, 10)
   tunnels <- rep(0, 10)
-  expect_error(hasi_r_num(bsa_percent_within_site = bsa,
-                          bsa_percent_total_body = NULL,
-                          bsa_ordinal = NULL,
-                          bodysite = bodysite,
-                          inflam_color_chg = inflamm_color_chg,
-                          induration = induration,
-                          open_skin_surface = open_skin_surface,
-                          tunnels = tunnels))
+  expect_error(
+    hasi_r_num(
+      bsa_percent_within_site = bsa,
+      bodysite = bodysite,
+      inflam_color_chg = inflamm_color_chg,
+      induration = induration,
+      open_skin_surface = open_skin_surface,
+      tunnels = tunnels
+    ),
+    regexp = "'bsa_percent_within_site'.*Must be .*'numeric', not 'character'"
+  )
 })
 
 # Test with missing argument inflamm_color_chg

@@ -55,10 +55,5 @@ test_that("ihs4_char throws error for NA values", {
 })
 
 test_that("ihs4_char handles single value correctly", {
-  ihs4_scores <- 2
-  expected_output <- "Mild"
-
-  result <- ihs4_char(ihs4_scores)
-
-  expect_equal(result, expected_output)
+  expect_equal(ihs4_char(2), "Mild")
 })
