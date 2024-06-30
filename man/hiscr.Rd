@@ -15,28 +15,35 @@ hiscr(
 )
 }
 \arguments{
-\item{baseline_abscess}{Integer vector representing the abscess count at baseline.}
+\item{baseline_abscess}{Integer vector representing the abscess count at
+baseline.}
 
-\item{baseline_nodule}{Integer vector representing the inflammatory nodule count at baseline.}
+\item{baseline_nodule}{Integer vector representing the inflammatory nodule
+count at baseline.}
 
-\item{baseline_fistula}{Integer vector representing the draining fistula count at baseline.}
+\item{baseline_fistula}{Integer vector representing the draining fistula
+count at baseline.}
 
-\item{timepoint_abscess}{Integer vector representing the abscess count at the time point of interest.}
+\item{timepoint_abscess}{Integer vector representing the abscess count at the
+time point of interest.}
 
-\item{timepoint_nodule}{Integer vector representing the inflammatory nodule count at the time point of interest.}
+\item{timepoint_nodule}{Integer vector representing the inflammatory nodule
+count at the time point of interest.}
 
-\item{timepoint_fistula}{Integer vector representing the draining fistula count at the time point of interest.}
+\item{timepoint_fistula}{Integer vector representing the draining fistula
+count at the time point of interest.}
 
-\item{percentage}{Numeric value specifying the percentage required for HiSCR (e.g., 50 for HiSCR50, 75 for HiSCR75, etc.).}
+\item{percentage}{Numeric value specifying the percentage required for HiSCR
+(e.g., 50 for HiSCR50, 75 for HiSCR75, etc.).}
 }
 \value{
-A logical vector indicating whether the HiSCR response is achieved for each set of input parameters.
+A logical vector indicating whether the HiSCR response is achieved
+for each set of input parameters.
 }
 \description{
 Calculates HiSCR scores given a percentage parameter.
 }
 \examples{
-
 hiscr(
   baseline_abscess = c(3, 2, 4),
   baseline_nodule = c(5, 4, 6),
@@ -48,9 +55,10 @@ hiscr(
 )
 }
 \references{
-Kimball, A B et al. “HiSCR (Hidradenitis Suppurativa Clinical Response):
-a novel clinical endpoint to evaluate therapeutic outcomes in patients with
-hidradenitis suppurativa from the placebo-controlled portion of a phase 2 adalimumab study.”
-Journal of the European Academy of Dermatology and Venereology :
-JEADV vol. 30,6 (2016): 989-94. doi:10.1111/jdv.13216
+Kimball, A B et al. “HiSCR (Hidradenitis Suppurativa Clinical
+Response): a novel clinical endpoint to evaluate therapeutic outcomes in
+patients with hidradenitis suppurativa from the placebo-controlled portion
+of a phase 2 adalimumab study.” Journal of the European Academy of
+Dermatology and Venereology : JEADV vol. 30,6 (2016): 989-94.
+doi:10.1111/jdv.13216
 }

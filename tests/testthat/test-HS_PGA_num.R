@@ -77,8 +77,22 @@ test_that("check_large_input_values", {
 })
 
 test_that("check_named_input_vectors", {
-  expect_equal(hs_pga_num(abscess_fistula = 0, inflammatory_nodule = 0, non_inflammatory_nodule = 0), 1)
-  expect_equal(hs_pga_num(abscess_fistula = 1, inflammatory_nodule = 0, non_inflammatory_nodule = 0), 3)
+  expect_equal(
+    hs_pga_num(
+      abscess_fistula = 0,
+      inflammatory_nodule = 0,
+      non_inflammatory_nodule = 0
+    ),
+    1
+  )
+  expect_equal(
+    hs_pga_num(
+      abscess_fistula = 1,
+      inflammatory_nodule = 0,
+      non_inflammatory_nodule = 0
+    ),
+    3
+  )
 })
 
 test_that("check_character_input", {

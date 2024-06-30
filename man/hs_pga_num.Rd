@@ -2,22 +2,28 @@
 % Please edit documentation in R/HS_PGA_num.R
 \name{hs_pga_num}
 \alias{hs_pga_num}
-\title{Calculates HS-PGA scores based on abscess, draining fistula, and inflammatory nodule counts.}
+\title{Calculates HS-PGA scores based on abscess, draining fistula, and inflammatory
+nodule counts.}
 \usage{
 hs_pga_num(abscess_fistula, inflammatory_nodule, non_inflammatory_nodule)
 }
 \arguments{
-\item{abscess_fistula}{Integer vector representing the sum of abscess and draining fistula counts.}
+\item{abscess_fistula}{Integer vector representing the sum of abscess and
+draining fistula counts.}
 
-\item{inflammatory_nodule}{Integer vector representing the inflammatory nodule count.}
+\item{inflammatory_nodule}{Integer vector representing the inflammatory
+nodule count.}
 
-\item{non_inflammatory_nodule}{Integer vector representing the non-inflammatory nodule count.}
+\item{non_inflammatory_nodule}{Integer vector representing the
+non-inflammatory nodule count.}
 }
 \value{
-An integer vector representing the HS-PGA scores (1: Clean, 2: Minimal, 3: Mild, 4: Moderate, 5: Severe, 6: Very Severe).
+An integer vector representing the HS-PGA scores (1: Clean,
+2: Minimal, 3: Mild, 4: Moderate, 5: Severe, 6: Very Severe)
 }
 \description{
-Calculates HS-PGA scores based on abscess, draining fistula, and inflammatory nodule counts.
+Calculates HS-PGA scores based on abscess, draining fistula, and inflammatory
+nodule counts.
 }
 \examples{
 hs_pga_num(
