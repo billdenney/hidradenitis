@@ -33,7 +33,8 @@ test_that("check_mild_score", {
     hs_pga_num(
       abscess_fistula = 0,
       inflammatory_nodule = 1,
-      non_inflammatory_nodule = 0),
+      non_inflammatory_nodule = 0
+    ),
     3
   )
   expect_equal(
