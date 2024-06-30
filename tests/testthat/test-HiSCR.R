@@ -11,28 +11,35 @@ test_that("check_fistula_count_increase", {
     hiscr(
       c(3, 2, 4), c(5, 4, 6), c(2, 1, 3),
       c(1, 1, 2), c(2, 3, 2), c(3, 2, 4),
-      50)
+      50
+    )
   ))
 })
 
 test_that("check_input_length_consistency", {
   expect_error(
-    hiscr(c(3, 2), c(5, 4, 6), c(2, 1, 3),
-          c(1, 1, 2), c(2, 3, 2), c(2, 1, 3),
-          50)
+    hiscr(
+      c(3, 2), c(5, 4, 6), c(2, 1, 3),
+      c(1, 1, 2), c(2, 3, 2), c(2, 1, 3),
+      50
+    )
   )
 })
 
 test_that("check_percentage_range", {
   expect_error(
-    hiscr(c(3, 2, 4), c(5, 4, 6), c(2, 1, 3),
-          c(1, 1, 2), c(2, 3, 2), c(2, 1, 3),
-          120)
+    hiscr(
+      c(3, 2, 4), c(5, 4, 6), c(2, 1, 3),
+      c(1, 1, 2), c(2, 3, 2), c(2, 1, 3),
+      120
+    )
   )
   expect_error(
-    hiscr(c(3, 2, 4), c(5, 4, 6), c(2, 1, 3),
-          c(1, 1, 2), c(2, 3, 2), c(2, 1, 3),
-          30)
+    hiscr(
+      c(3, 2, 4), c(5, 4, 6), c(2, 1, 3),
+      c(1, 1, 2), c(2, 3, 2), c(2, 1, 3),
+      30
+    )
   )
 })
 

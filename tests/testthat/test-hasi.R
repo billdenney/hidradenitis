@@ -56,7 +56,8 @@ test_that("hasi_r_num works with full example", {
       inflam_color_chg = inflamm_color_chg,
       induration = induration,
       open_skin_surface = open_skin_surface,
-      tunnels = tunnels),
+      tunnels = tunnels
+    ),
     228
   )
 })
@@ -152,12 +153,13 @@ test_that("hasi_r_num gives error with missing inflamm_color_chg", {
       # exclude inflam_color_chg = inflamm_color_chg,
       induration = induration,
       open_skin_surface = open_skin_surface,
-      tunnels = tunnels),
+      tunnels = tunnels
+    ),
     regexp = "\"inflam_color_chg\" is missing"
   )
 })
 
-test_that("hasi_r_num gives error with incorrect data type for inflamm_color_chg", {
+test_that("hasi_r_num incorrect data type for inflamm_color_chg", {
   bodysite <-
     c(
       "Right Axilla", "Buttocks including Intergluteal Cleft", "Back",
@@ -178,8 +180,9 @@ test_that("hasi_r_num gives error with incorrect data type for inflamm_color_chg
       inflam_color_chg = as.character(inflamm_color_chg),
       induration = induration,
       open_skin_surface = open_skin_surface,
-      tunnels = tunnels),
-    regexp = "Assertion on 'inflam_color_chg' failed: Must be of type 'integerish', not 'character'."
+      tunnels = tunnels
+    ),
+    regexp = "'inflam_color_chg'.* 'integerish', not 'character'."
   )
 })
 
