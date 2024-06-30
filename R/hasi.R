@@ -13,8 +13,7 @@
 #' @param open_skin_surface Integer vector representing open skin surface scores
 #'   (0-3).
 #' @param tunnels Integer vector representing tunnels scores (0-3).
-#' @return A data frame with patientID, visitDY, and the calculated HASI-R
-#'   score.
+#' @return A numeric vector of the calculated HASI-R score
 #' @export
 #' @family HASI
 #' @examples

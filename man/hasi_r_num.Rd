@@ -37,8 +37,7 @@ scores (0-3).}
 \item{tunnels}{Integer vector representing tunnels scores (0-3).}
 }
 \value{
-A data frame with patientID, visitDY, and the calculated HASI-R
-score.
+A numeric vector of the calculated HASI-R score
 }
 \description{
 Calculates the HASI-R score for each patient and visit.
