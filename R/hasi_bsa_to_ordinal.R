@@ -86,5 +86,5 @@ hasi_bsa_to_ordinal <- function(bsa_percent_within_site = NULL,
   checkmate::assert_integerish(
     bsa_ordinal, lower = 0, upper = 6, any.missing = TRUE
   )
-  bsa_ordinal
+  as.integer(bsa_ordinal)
 }
