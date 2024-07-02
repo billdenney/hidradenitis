@@ -17,7 +17,7 @@ Description: Calculate clinical scores for hidradenitis suppurativa (HS), a
   suppurativa Physician Global Assessment (HS PGA) (Marzano, A. V., Chiricozzi,
   A., Giovanardi, G., Argenziano, G., Bettoli, V., Bianchi, L., Rongioletti, F.
   (2020) <doi:10.1111/jdv.16328>), and the International Hidradenitis Suppurativa
-  Severity Score System (IHS4) (CHRISTOS C. ZOUBOULIS, ATHANASSIOS KYRGIDIS (2017)
+  Severity Score System (IHS4) (Christos C. Zouboulis, Athanassios Kyrgidis (2017)
   <doi:10.1111/bjd.15748>).
 License: GPL (>= 3)
 Encoding: UTF-8
