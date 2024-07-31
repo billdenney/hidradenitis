@@ -1,39 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://billdenney.github.io/hidradenitis/404.html</loc>
-  </url>
-  <url>
-    <loc>https://billdenney.github.io/hidradenitis/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://billdenney.github.io/hidradenitis/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://billdenney.github.io/hidradenitis/index.html</loc>
-  </url>
-  <url>
-    <loc>https://billdenney.github.io/hidradenitis/reference/hasi_bsa_to_ordinal.html</loc>
-  </url>
-  <url>
-    <loc>https://billdenney.github.io/hidradenitis/reference/hasi_r_num.html</loc>
-  </url>
-  <url>
-    <loc>https://billdenney.github.io/hidradenitis/reference/hiscr.html</loc>
-  </url>
-  <url>
-    <loc>https://billdenney.github.io/hidradenitis/reference/hs_pga_char.html</loc>
-  </url>
-  <url>
-    <loc>https://billdenney.github.io/hidradenitis/reference/hs_pga_num.html</loc>
-  </url>
-  <url>
-    <loc>https://billdenney.github.io/hidradenitis/reference/ihs4_char.html</loc>
-  </url>
-  <url>
-    <loc>https://billdenney.github.io/hidradenitis/reference/ihs4_num.html</loc>
-  </url>
-  <url>
-    <loc>https://billdenney.github.io/hidradenitis/reference/index.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://billdenney.github.io/hidradenitis/404.html</loc></url>
+<url><loc>https://billdenney.github.io/hidradenitis/LICENSE.html</loc></url>
+<url><loc>https://billdenney.github.io/hidradenitis/authors.html</loc></url>
+<url><loc>https://billdenney.github.io/hidradenitis/index.html</loc></url>
+<url><loc>https://billdenney.github.io/hidradenitis/news/index.html</loc></url>
+<url><loc>https://billdenney.github.io/hidradenitis/reference/hasi_bsa_to_ordinal.html</loc></url>
+<url><loc>https://billdenney.github.io/hidradenitis/reference/hasi_r_num.html</loc></url>
+<url><loc>https://billdenney.github.io/hidradenitis/reference/hiscr.html</loc></url>
+<url><loc>https://billdenney.github.io/hidradenitis/reference/hs_pga_char.html</loc></url>
+<url><loc>https://billdenney.github.io/hidradenitis/reference/hs_pga_num.html</loc></url>
+<url><loc>https://billdenney.github.io/hidradenitis/reference/ihs4_char.html</loc></url>
+<url><loc>https://billdenney.github.io/hidradenitis/reference/ihs4_num.html</loc></url>
+<url><loc>https://billdenney.github.io/hidradenitis/reference/index.html</loc></url>
 </urlset>
+
